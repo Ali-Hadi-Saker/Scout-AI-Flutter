@@ -11,6 +11,9 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController fname = TextEditingController();
   TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController confirmPasswrod = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
           InputField(
             hintText: "Email", 
             controller: email,
-            icon: Icons.email,)],
+            icon: Icons.email,),
+          InputField(
+            hintText: "Password", 
+            controller: password,
+            icon: Icons.lock_rounded,),
+            InputField(
+            hintText: "Confirm Password", 
+            controller: confirmPasswrod,
+            icon: Icons.lock_rounded,)],
       ),
     );
   }

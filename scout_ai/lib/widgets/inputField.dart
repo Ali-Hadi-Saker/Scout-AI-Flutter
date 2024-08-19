@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 
 class InputField extends StatelessWidget {
-  final String textHint;
+  final String hintText;
   final TextEditingController controller;
   const InputField({
                   super.key,
-                  required this.textHint,
+                  required this.hintText,
                   required this.controller});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return TextField(
+      controller: controller,
+      decoration: InputDecoration(
+        hintText: hintText
+      ),
+    );
   }
 }

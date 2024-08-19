@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/inputField.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -59,6 +60,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   controller: confirmPasswrod,
                   icon: Icons.lock_rounded,
                   obscureText: true,),
+                  Button(text: "Sign Up", onPressed: ()=>{}),
                   const Text("Already have an account?",
                   style: TextStyle(color: Colors.white),)]
                   

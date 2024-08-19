@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/inputField.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -56,6 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 controller: password, 
                 icon: Icons.lock, 
                 obscureText: true),
+                Button(text: "Login", onPressed: ()=>{}),
                 Text("Don't have an account? Sign Up",
                 style: TextStyle(color: Colors.white),)
             ],

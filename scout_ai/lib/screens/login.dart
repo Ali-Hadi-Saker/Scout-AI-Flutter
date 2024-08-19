@@ -35,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Align(
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: Text("Hello,\nWelcome Back!!",
                 style: TextStyle(
@@ -45,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 ),
               ),
-              SizedBox(height: 60,),
+              const SizedBox(height: 60,),
               InputField(
                 hintText: "Email", 
                 controller: email, 
@@ -55,7 +55,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 hintText: "Password", 
                 controller: password, 
                 icon: Icons.lock, 
-                obscureText: true)
+                obscureText: true),
+                Text("Don't have an account? Sign Up",
+                style: TextStyle(color: Colors.white),)
             ],
           ),
         )

@@ -33,34 +33,37 @@ class _RegisterScreenState extends State<RegisterScreen> {
               
               color: Colors.black.withOpacity(0.4),
             ),
-            Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              InputField(
-                hintText: "Full Name", 
-                controller: fname,
-                icon: Icons.person,
-                obscureText: false,),            
-              InputField(
-                hintText: "Email", 
-                controller: email,
-                icon: Icons.email,
-                obscureText: false,),
-              InputField(
-                hintText: "Password", 
-                controller: password,
-                icon: Icons.lock_rounded,
-                obscureText: true,),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
                 InputField(
-                hintText: "Confirm Password", 
-                controller: confirmPasswrod,
-                icon: Icons.lock_rounded,
-                obscureText: true,),
-                const Text("Already have an account?",
-                style: TextStyle(color: Colors.white),)]
-                
-          ),
+                  hintText: "Full Name", 
+                  controller: fname,
+                  icon: Icons.person,
+                  obscureText: false,),            
+                InputField(
+                  hintText: "Email", 
+                  controller: email,
+                  icon: Icons.email,
+                  obscureText: false,),
+                InputField(
+                  hintText: "Password", 
+                  controller: password,
+                  icon: Icons.lock_rounded,
+                  obscureText: true,),
+                  InputField(
+                  hintText: "Confirm Password", 
+                  controller: confirmPasswrod,
+                  icon: Icons.lock_rounded,
+                  obscureText: true,),
+                  const Text("Already have an account?",
+                  style: TextStyle(color: Colors.white),)]
+                  
+                        ),
+            ),
           ]
         ),
       

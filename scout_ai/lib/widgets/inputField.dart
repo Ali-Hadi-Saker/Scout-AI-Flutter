@@ -15,14 +15,14 @@ class InputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(8.0),
       child: TextField(
         obscureText: obscureText,
         controller: controller,
         decoration: InputDecoration(
           suffix: obscureText == true? Icon(Icons.remove_red_eye):null,
             filled: true,
-            fillColor: Colors.white,
+            fillColor: Colors.white.withOpacity(0.85),
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
             hintText: hintText,
             hintStyle: TextStyle(color: Colors.grey[700], fontSize: 18),

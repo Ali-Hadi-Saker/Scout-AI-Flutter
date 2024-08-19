@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scout_ai/screens/home.dart';
 import 'package:scout_ai/screens/login.dart';
 import 'package:scout_ai/screens/register.dart';
 
@@ -18,10 +19,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const LoginScreen(),
+      home: const HomeScreen(),
       routes: {
         "register": (context)=> const RegisterScreen(),
-        "login": (context)=> const LoginScreen()
+        "login": (context)=> const LoginScreen(),
+        "home": (context)=> const HomeScreen()
 
       },
     );

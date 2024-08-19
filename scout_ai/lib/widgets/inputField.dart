@@ -13,11 +13,13 @@ class InputField extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       child: TextField(
         controller: controller,
-        decoration:
-            InputDecoration(
-              border: OutlineInputBorder(), 
+        decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.white,
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)), 
               hintText: hintText,
-              prefixIcon: Icon(icon)
+              hintStyle: TextStyle(color: Colors.grey[700], fontSize: 18),
+              prefixIcon: Icon(icon, color: Colors.grey[700],)
               ),
       ),
     );

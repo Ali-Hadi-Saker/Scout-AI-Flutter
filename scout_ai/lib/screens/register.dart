@@ -10,6 +10,8 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController fname = TextEditingController();
+  TextEditingController email = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +23,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
           InputField(
             hintText: "Full Name", 
             controller: fname,
-            icon: Icons.person,)],
+            icon: Icons.person),
+          InputField(
+            hintText: "Email", 
+            controller: email,
+            icon: Icons.email,)],
       ),
     );
   }

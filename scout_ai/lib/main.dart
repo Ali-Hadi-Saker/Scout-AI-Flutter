@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scout_ai/screens/login.dart';
 import 'package:scout_ai/screens/register.dart';
 
 void main() {
@@ -18,6 +19,11 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const RegisterScreen(),
+      routes: {
+        "register": (context)=> const RegisterScreen(),
+        "login": (context)=> const LoginScreen()
+
+      },
     );
   }
 }

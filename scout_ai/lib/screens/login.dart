@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:scout_ai/widgets/inputField.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -20,19 +21,31 @@ class _LoginScreenState extends State<LoginScreen> {
         Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/images/car3.jpg"),
+              image: AssetImage("assets/images/car2.jpg"),
               fit: BoxFit.cover)
           ),
         ),
         Container(
-          color: Colors.black.withOpacity(0.1),
+          color: Colors.black.withOpacity(0.4),
         ),
         Padding(
-          padding: const EdgeInsets.all(5.0),
+          padding: const EdgeInsets.all(10),
           child: Column(
+            
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text("Hello,\nWelcome Back!!",
+                style: TextStyle(
+                  fontSize:28,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white 
+                ),
+                ),
+              ),
+              SizedBox(height: 60,),
               InputField(
                 hintText: "Email", 
                 controller: email, 

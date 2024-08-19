@@ -25,7 +25,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             Container(
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/images/car2.jpg"),
+                  image: AssetImage("assets/images/car3.jpg"),
                   fit: BoxFit.cover)
               ),
             ),

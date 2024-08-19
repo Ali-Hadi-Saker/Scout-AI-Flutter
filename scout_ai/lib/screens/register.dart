@@ -26,19 +26,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
           InputField(
             hintText: "Full Name", 
             controller: fname,
-            icon: Icons.person),
+            icon: Icons.person,
+            obscureText: false,),            
           InputField(
             hintText: "Email", 
             controller: email,
-            icon: Icons.email,),
+            icon: Icons.email,
+            obscureText: false,),
           InputField(
             hintText: "Password", 
             controller: password,
-            icon: Icons.lock_rounded,),
+            icon: Icons.lock_rounded,
+            obscureText: true,),
             InputField(
             hintText: "Confirm Password", 
             controller: confirmPasswrod,
-            icon: Icons.lock_rounded,)],
+            icon: Icons.lock_rounded,
+            obscureText: true,)],
       ),
     );
   }

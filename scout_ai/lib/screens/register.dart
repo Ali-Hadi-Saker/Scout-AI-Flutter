@@ -23,11 +23,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
         
           children: [
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage("assets/images/car2.jpg"),
                   fit: BoxFit.cover)
               ),
+            ),
+            Container(
+              
+              color: Colors.black.withOpacity(0.4),
             ),
             Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -53,7 +57,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 controller: confirmPasswrod,
                 icon: Icons.lock_rounded,
                 obscureText: true,),
-                Text("Already have an account?",
+                const Text("Already have an account?",
                 style: TextStyle(color: Colors.white),)]
                 
           ),

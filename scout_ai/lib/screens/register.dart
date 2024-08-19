@@ -13,8 +13,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       body: Column(
-        children: [InputField(hintText: "Full Name", controller: fname)],
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          InputField(
+            hintText: "Full Name", 
+            controller: fname,
+            icon: Icons.person,)],
       ),
     );
   }

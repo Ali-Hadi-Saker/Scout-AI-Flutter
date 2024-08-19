@@ -19,31 +19,43 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          InputField(
-            hintText: "Full Name", 
-            controller: fname,
-            icon: Icons.person,
-            obscureText: false,),            
-          InputField(
-            hintText: "Email", 
-            controller: email,
-            icon: Icons.email,
-            obscureText: false,),
-          InputField(
-            hintText: "Password", 
-            controller: password,
-            icon: Icons.lock_rounded,
-            obscureText: true,),
-            InputField(
-            hintText: "Confirm Password", 
-            controller: confirmPasswrod,
-            icon: Icons.lock_rounded,
-            obscureText: true,)],
-      ),
+      body: Stack(    
+        
+          children: [
+            Container(
+              
+            ),
+            Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              InputField(
+                hintText: "Full Name", 
+                controller: fname,
+                icon: Icons.person,
+                obscureText: false,),            
+              InputField(
+                hintText: "Email", 
+                controller: email,
+                icon: Icons.email,
+                obscureText: false,),
+              InputField(
+                hintText: "Password", 
+                controller: password,
+                icon: Icons.lock_rounded,
+                obscureText: true,),
+                InputField(
+                hintText: "Confirm Password", 
+                controller: confirmPasswrod,
+                icon: Icons.lock_rounded,
+                obscureText: true,),
+                Text("Already have an account?")]
+                
+          ),
+          ]
+        ),
+      
+      
     );
   }
 }

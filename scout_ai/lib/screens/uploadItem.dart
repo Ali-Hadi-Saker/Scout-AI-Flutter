@@ -10,6 +10,14 @@ class UploadItemScreen extends StatefulWidget {
 class _UploadItemScreenState extends State<UploadItemScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: ()=>{Navigator.pop(context)}, 
+          icon: Icon(
+            Icons.arrow_back)),
+            title: Center(child: Text("Upload Page")),
+      ),
+    );
   }
 }

@@ -29,7 +29,11 @@ class CustomizedButton extends StatelessWidget {
                 ),
                 if(suffexIcon != null) ...[
                   SizedBox(width: 30,),
-                  suffexIcon!
+                  Icon(
+                    suffexIcon!.icon,
+                    size: 30,
+                    color: Colors.white,)
+                  
                 ]
               ],
             ),

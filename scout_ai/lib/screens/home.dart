@@ -19,11 +19,16 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-              SizedBox(
-                height: 200,
-                width: 150,
-                child: Image(
-                  image: AssetImage('assets/images/robot.png')),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  SizedBox(
+                    height: 200,
+                    width: 150,
+                    child: Image(
+                      image: AssetImage('assets/images/robot.png')),
+                  ),
+                ],
               ),
             SizedBox(            
               height: 180,

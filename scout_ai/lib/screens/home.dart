@@ -58,7 +58,9 @@ class _HomeScreenState extends State<HomeScreen> {
             CustomizedButton(
               heigth: 100,
               text: "Drive yor Car",
-              onPressed: ()=>{},
+              onPressed: ()=>{
+                Navigator.pushNamed(context, "car-control")
+              },
               suffexIcon: const Icon(
                 Icons.directions_car,
                 color: Colors.white,),),

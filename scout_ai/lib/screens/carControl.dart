@@ -17,6 +17,16 @@ class _CarControlScreenState extends State<CarControlScreen> {
             Navigator.pop(context)}, 
             icon: Icon(Icons.arrow_back)),
       ),
+      body: Column(
+        children: [
+          Container(
+            color: Colors.black,
+            child: Center(
+              child: Text("video Stream", style: TextStyle(color: Colors.white, fontSize: 24),),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

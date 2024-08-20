@@ -3,6 +3,7 @@ import 'package:scout_ai/screens/carControl.dart';
 import 'package:scout_ai/screens/home.dart';
 import 'package:scout_ai/screens/login.dart';
 import 'package:scout_ai/screens/register.dart';
+import 'package:scout_ai/screens/searchResult.dart';
 import 'package:scout_ai/screens/uploadItem.dart';
 
 void main() {
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
         "login": (context)=> const LoginScreen(),
         "home": (context)=> const HomeScreen(),
         "upload-item": (context)=> const UploadItemScreen(),
-        "car-control": (context)=> const CarControlScreen()
+        "car-control": (context)=> const CarControlScreen(),
+        "search-result": (context)=> const SearchResultScreen(),
 
       },
     );

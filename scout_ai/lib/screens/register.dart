@@ -19,7 +19,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   void createUser() async {
     try {
-      var url = Uri.parse('http://localhost:8080/users/register');
+      var url = Uri.parse('http://192.168.1.21:8080/users/register');
       var response = await http.post(url,
           headers: {"Content-type": "application/json"},
           body: json.encode({
@@ -28,12 +28,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
             'password': password.text
           }));
 
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
         print('User registered successfully!');
+        print('Response body: ${response.body}');
+        Navigator.pushNamed(context, 'login');
       } else {
-        print('Failed to register user: ${response.statusCode}');
+        print('Failed to register user.');
+        print('Status code: ${response.statusCode}');
+        print('Response body: ${response.body}');
       }
-      
     } catch (e) {
       print('Error: $e');
     }

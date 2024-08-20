@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,13 +11,29 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Color.fromRGBO(246, 246, 246, 1),
       body: Column(
-        
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image(image: AssetImage('assets/images/scout_ai_logo.png'))
+            Positioned(
+            top: 100,
+            right: 200,
+            child: SizedBox(
+              height: 200,
+              width: 150,
+              child: Image(
+                image: AssetImage('assets/images/robot.png')),
+            )),
+          Center(
+            child: SizedBox(            
+              height: 200,
+              width: 200,
+              child: Image(
+                image: AssetImage('assets/images/scout_ai_logo_only.png')
+                ),),
+          ),
+
         ],
       ),
     );

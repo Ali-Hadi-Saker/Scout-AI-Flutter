@@ -60,7 +60,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   controller: confirmPasswrod,
                   icon: Icons.lock_rounded,
                   obscureText: true,),
-                  CustomizedButton(text: "Sign Up", onPressed: ()=>{}),
+                  CustomizedButton(
+                    text: "Sign Up", 
+                    onPressed: ()=>{Navigator.pushNamed(context, "login")}),
                   const Text("Already have an account?",
                   style: TextStyle(color: Colors.white),)]
                   

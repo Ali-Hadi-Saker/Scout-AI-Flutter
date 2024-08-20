@@ -12,14 +12,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(246, 246, 246, 1),
+      backgroundColor: const Color.fromRGBO(246, 246, 246, 1),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   SizedBox(
@@ -30,33 +30,38 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-            SizedBox(            
+            const SizedBox(            
               height: 180,
               width: 180,
               child: Image(
                 image: AssetImage('assets/images/scout_ai_logo_only.png')),
                 ),
-                Text("Scout AI",
+                const Text("Scout AI",
                 style: TextStyle(
                   color: Color.fromRGBO(50,146,230, 1),
                   fontSize: 28,
                   fontWeight: FontWeight.w900
                 ),),
-                SizedBox(height: 70,),
+                const SizedBox(height: 70,),
             CustomizedButton(
               heigth: 100,
               text: "Search for an Item", 
-              onPressed: ()=>{}, suffexIcon: 
-              Icon(Icons.search,color: Colors.white,)),
-            SizedBox(
+              onPressed: ()=>{
+                Navigator.pushNamed(context, "upload-item")
+              }, 
+              suffexIcon:const Icon(
+                Icons.search,color: 
+                Colors.white,)),
+            const SizedBox(
               height: 15,
             ),
             CustomizedButton(
               heigth: 100,
               text: "Drive yor Car",
               onPressed: ()=>{},
-              suffexIcon: Icon(
-                Icons.directions_car,color: Colors.white,),),
+              suffexIcon: const Icon(
+                Icons.directions_car,
+                color: Colors.white,),),
         
             
           ],

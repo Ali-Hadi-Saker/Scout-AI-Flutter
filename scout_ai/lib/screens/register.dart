@@ -18,15 +18,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController confirmPasswrod = TextEditingController();
 
   void createUser() async {
-    var url = Uri.parse('http://localhost:8080/users/register');
+    try {
+      var url = Uri.parse('http://localhost:8080/users/register');
+      var response = await http.post(url,
+          headers: {"Content-type": "application/json"},
+          body: json.encode({
+            'fname': fname.text,
+            'email': email.text,
+            'password': password.text
+          }));
 
-    var response = await http.post(url,
-        headers: {"Content-type": "application/json"},
-        body: json.encode({
-          'fname': fname.text,
-          'email': email.text,
-          'password': password.text
-        }));
+      if (response.statusCode == 200) {
+        print('User registered successfully!');
+      } else {
+        print('Failed to register user: ${response.statusCode}');
+      }
+      
+    } catch (e) {
+      print('Error: $e');
+    }
   }
 
   @override
@@ -73,8 +83,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   obscureText: true,
                 ),
                 CustomizedButton(
-                    text: "Sign Up",
-                    onPressed: () => {Navigator.pushNamed(context, "login")}),
+                    text: "Sign Up", onPressed: () => {createUser()}),
                 const Text(
                   "Already have an account?",
                   style: TextStyle(color: Colors.white),

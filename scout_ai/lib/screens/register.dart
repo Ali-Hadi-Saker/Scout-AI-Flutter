@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/inputField.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -15,63 +17,71 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController password = TextEditingController();
   TextEditingController confirmPasswrod = TextEditingController();
 
+  void createUser() async {
+    var url = Uri.parse('http://localhost:8080/users/register');
+
+    var response = await http.post(url,
+        headers: {"Content-type": "application/json"},
+        body: json.encode({
+          'fname': fname.text,
+          'email': email.text,
+          'password': password.text
+        }));
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      body: Stack(    
-        
-          children: [
-            Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
+      body: Stack(children: [
+        Container(
+          decoration: const BoxDecoration(
+              image: DecorationImage(
                   image: AssetImage("assets/images/car3.jpg"),
-                  fit: BoxFit.cover)
-              ),
-            ),
-            Container(
-              
-              color: Colors.black.withOpacity(0.4),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Column(
+                  fit: BoxFit.cover)),
+        ),
+        Container(
+          color: Colors.black.withOpacity(0.4),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 InputField(
-                  hintText: "Full Name", 
+                  hintText: "Full Name",
                   controller: fname,
                   icon: Icons.person,
-                  obscureText: false,),            
+                  obscureText: false,
+                ),
                 InputField(
-                  hintText: "Email", 
+                  hintText: "Email",
                   controller: email,
                   icon: Icons.email,
-                  obscureText: false,),
+                  obscureText: false,
+                ),
                 InputField(
-                  hintText: "Password", 
+                  hintText: "Password",
                   controller: password,
                   icon: Icons.lock_rounded,
-                  obscureText: true,),
-                  InputField(
-                  hintText: "Confirm Password", 
+                  obscureText: true,
+                ),
+                InputField(
+                  hintText: "Confirm Password",
                   controller: confirmPasswrod,
                   icon: Icons.lock_rounded,
-                  obscureText: true,),
-                  CustomizedButton(
-                    text: "Sign Up", 
-                    onPressed: ()=>{Navigator.pushNamed(context, "login")}),
-                  const Text("Already have an account?",
-                  style: TextStyle(color: Colors.white),)]
-                  
-                        ),
-            ),
-          ]
+                  obscureText: true,
+                ),
+                CustomizedButton(
+                    text: "Sign Up",
+                    onPressed: () => {Navigator.pushNamed(context, "login")}),
+                const Text(
+                  "Already have an account?",
+                  style: TextStyle(color: Colors.white),
+                )
+              ]),
         ),
-      
-      
+      ]),
     );
   }
 }

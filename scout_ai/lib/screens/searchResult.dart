@@ -14,19 +14,43 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
       appBar: AppBar(
         title: Center(child: Text("Search Result",)),
       ),
-      body: Column(
-        children: [
-          Text("Results"),
-          Container(
-            height: MediaQuery.of(context).size.width,
-            color: Colors.grey,
-          ),
-          Text("Map View"),
-          Container(
-            height:MediaQuery.of(context).size.width,
-            color: Colors.grey,
-          )
-      ],),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("Results",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600
+              ),),
+              SizedBox(height: 15,),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.grey,
+                ),
+                height: MediaQuery.of(context).size.width,
+              ),
+              SizedBox(height: 15,)
+,              Text("Map View",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600
+
+              ),),
+              SizedBox(height: 15,),
+              Container(
+                height:MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.grey,
+                ),
+              )
+          ],),
+        ),
+      ),
     );
   }
 }

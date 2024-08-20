@@ -57,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 controller: password, 
                 icon: Icons.lock, 
                 obscureText: true),
-                Button(text: "Login", onPressed: ()=>{}),
+              CustomizedButton(text: "Login", onPressed: ()=>{}),
                 SizedBox(height: 15,),
                 Text("Don't have an account? Sign Up",
                 style: TextStyle(color: Colors.white),)

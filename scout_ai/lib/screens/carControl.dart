@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_joystick/flutter_joystick.dart';
 
 class CarControlScreen extends StatefulWidget {
   const CarControlScreen({super.key});
@@ -32,7 +33,16 @@ class _CarControlScreenState extends State<CarControlScreen> {
               child: Center(
                 child: Text("video Stream", style: TextStyle(color: Colors.white, fontSize: 24),),
               ),
-            )
+            ),
+            Expanded(
+              child: Center(
+                child: Joystick(
+                  mode: JoystickMode.all,
+                  listener: (details)=>{
+                    print('Joystick direction: (${details.x}, ${details.y})')
+
+                  },),
+              ))
           ],
         ),
       ),

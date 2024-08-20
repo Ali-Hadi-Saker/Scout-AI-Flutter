@@ -14,6 +14,19 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
       appBar: AppBar(
         title: Center(child: Text("Search Result",)),
       ),
+      body: Column(
+        children: [
+          Text("Results"),
+          Container(
+            height: MediaQuery.of(context).size.width,
+            color: Colors.grey,
+          ),
+          Text("Map View"),
+          Container(
+            height:MediaQuery.of(context).size.width,
+            color: Colors.grey,
+          )
+      ],),
     );
   }
 }

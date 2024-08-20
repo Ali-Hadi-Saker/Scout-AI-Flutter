@@ -19,6 +19,10 @@ class _CarControlScreenState extends State<CarControlScreen> {
             Navigator.pop(context)}, 
             icon: Icon(Icons.arrow_back)),
           title: Center(child: Text("Car Control")),
+          actions: [IconButton(onPressed: ()=>{
+            Navigator.pushNamed(context, "search-result")
+          }, 
+          icon: Icon(Icons.arrow_forward))],
       ),
       body: Padding(
         padding: const EdgeInsets.all(15),

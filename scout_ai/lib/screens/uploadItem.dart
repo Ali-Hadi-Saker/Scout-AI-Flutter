@@ -18,6 +18,24 @@ class _UploadItemScreenState extends State<UploadItemScreen> {
             Icons.arrow_back)),
             title: Center(child: Text("Upload Page")),
       ),
+      body: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.width,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                color: Colors.grey
+              ),
+              child: Center(
+                child: Icon(Icons.add_a_photo),
+              ),
+        
+            )
+          ],
+        ),
+      ),
     );
   }
 }

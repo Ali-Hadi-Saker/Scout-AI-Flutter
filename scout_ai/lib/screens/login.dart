@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/inputField.dart';
 import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -18,15 +19,16 @@ class _LoginScreenState extends State<LoginScreen> {
   void login() async {
     try {
       var url = Uri.parse('http://192.168.1.21:8080/users/login');
-      var response = http.post(
-        url,
-        headers: {
-          "content-type": "application/json"
-        },
-        body: {
-          "email": email.text,
-          "password": password.text
-        }  );
+      var response = await http.post(url,
+          headers: {"content-type": "application/json"},
+          body: jsonEncode({"email": email.text, "password": password.text}));
+      if (response.statusCode == 200) {
+        Navigator.pushNamed(context, "home");
+      } else {
+        print("faild to login");
+        print('Status code: ${response.statusCode}');
+        print('Response body: ${response.body}');
+      }
     } catch (e) {
       print('error $e');
     }
@@ -75,9 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: password,
                     icon: Icons.lock,
                     obscureText: true),
-                CustomizedButton(
-                    text: "Login",
-                    onPressed: () => {Navigator.pushNamed(context, "home")}),
+                CustomizedButton(text: "Login", onPressed: () => login()),
                 const SizedBox(
                   height: 15,
                 ),

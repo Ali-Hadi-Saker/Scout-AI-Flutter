@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scout_ai/widgets/button.dart';
 
 class UploadItemScreen extends StatefulWidget {
   const UploadItemScreen({super.key});
@@ -19,14 +20,14 @@ class _UploadItemScreenState extends State<UploadItemScreen> {
             title: Center(child: Text("Upload Page")),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(24),
         child: Column(
           children: [
             Container(
               height: MediaQuery.of(context).size.width,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(10),
                 color: Colors.grey[300],
                 border: Border.all(color: Colors.grey, width: 3)
               ),
@@ -34,8 +35,12 @@ class _UploadItemScreenState extends State<UploadItemScreen> {
                 child: Icon(Icons.add_a_photo, size: 28,),
                 
               ),
-        
-            )
+              
+            ),
+            SizedBox(height: 15,),
+            CustomizedButton(
+              text: "Start Search", 
+              onPressed: ()=>{})
           ],
         ),
       ),

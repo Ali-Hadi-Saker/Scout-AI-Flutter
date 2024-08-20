@@ -26,10 +26,13 @@ class _UploadItemScreenState extends State<UploadItemScreen> {
               height: MediaQuery.of(context).size.width,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                color: Colors.grey
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.grey[300],
+                border: Border.all(color: Colors.grey, width: 3)
               ),
               child: Center(
-                child: Icon(Icons.add_a_photo),
+                child: Icon(Icons.add_a_photo, size: 28,),
+                
               ),
         
             )

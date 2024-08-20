@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:scout_ai/screens/home.dart';
 import 'package:scout_ai/screens/login.dart';
 import 'package:scout_ai/screens/register.dart';
+import 'package:scout_ai/screens/uploadItem.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
       routes: {
         "register": (context)=> const RegisterScreen(),
         "login": (context)=> const LoginScreen(),
-        "home": (context)=> const HomeScreen()
+        "home": (context)=> const HomeScreen(),
+        "upload-item": (context)=> UploadItemScreen(),
 
       },
     );

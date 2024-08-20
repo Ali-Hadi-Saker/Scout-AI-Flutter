@@ -26,16 +26,26 @@ class _HomeScreenState extends State<HomeScreen> {
                   image: AssetImage('assets/images/robot.png')),
               ),
             SizedBox(            
-              height: 150,
-              width: 150,
+              height: 200,
+              width: 200,
               child: Image(
                 image: AssetImage('assets/images/scout_ai_logo_only.png')),
                 ),
-            CustomizedButton(text: "Search for an Item", onPressed: ()=>{}),
+                SizedBox(height: 70,),
+            CustomizedButton(
+              heigth: 100,
+              text: "Search for an Item", 
+              onPressed: ()=>{}, suffexIcon: 
+              Icon(Icons.search,color: Colors.white,)),
             SizedBox(
-              height: 10,
+              height: 15,
             ),
-            CustomizedButton(text: "Drive yor Car", onPressed: ()=>{}),
+            CustomizedButton(
+              heigth: 100,
+              text: "Drive yor Car",
+              onPressed: ()=>{},
+              suffexIcon: Icon(
+                Icons.directions_car,color: Colors.white,),),
         
             
           ],

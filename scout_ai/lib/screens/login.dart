@@ -49,43 +49,45 @@ class _LoginScreenState extends State<LoginScreen> {
             color: Colors.black.withOpacity(0.4),
           ),
           Padding(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Hello,\nWelcome Back!!",
-                    style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
+            padding: const EdgeInsets.all(25),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Hello,\nWelcome Back!!",
+                      style: TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 60,
-                ),
-                InputField(
-                    hintText: "Email",
-                    controller: email,
-                    icon: Icons.email,
-                    obscureText: false),
-                InputField(
-                    hintText: "Password",
-                    controller: password,
-                    icon: Icons.lock,
-                    obscureText: true),
-                CustomizedButton(text: "Login", onPressed: () => login()),
-                const SizedBox(
-                  height: 15,
-                ),
-                const Text(
-                  "Don't have an account? Sign Up",
-                  style: TextStyle(color: Colors.white),
-                )
-              ],
+                  const SizedBox(
+                    height: 60,
+                  ),
+                  InputField(
+                      hintText: "Email",
+                      controller: email,
+                      icon: Icons.email,
+                      obscureText: false),
+                  InputField(
+                      hintText: "Password",
+                      controller: password,
+                      icon: Icons.lock,
+                      obscureText: true),
+                  CustomizedButton(text: "Login", onPressed: () => login()),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  const Text(
+                    "Don't have an account? Sign Up",
+                    style: TextStyle(color: Colors.white),
+                  )
+                ],
+              ),
             ),
           )
         ],

@@ -7,12 +7,15 @@ class VideoSctream extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Mjpeg(
-          stream: streamUrl, 
-          isLive: true,),
-      ),
+    return Mjpeg(
+      stream: streamUrl,
+      isLive: true,
+      error: (context, error, stackTrace) {
+        return Center(child: Text('Failed to load stream'));
+      },
+      loading: (context) {
+        return Center(child: CircularProgressIndicator());
+      },
     );
   }
 }

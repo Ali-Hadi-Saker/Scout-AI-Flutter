@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_joystick/flutter_joystick.dart';
@@ -39,7 +40,7 @@ class _CarControlScreenState extends State<CarControlScreen> {
             //     child: Text("video Stream", style: TextStyle(color: Colors.white, fontSize: 24),),
             //   ),
             // ),
-            VideoSctream(streamUrl: 'http://192.168.0.106'),
+            Expanded(child: VideoSctream(streamUrl: 'http://192.168.0.106')),
             Expanded(
               child: Center(
                 child: Joystick(

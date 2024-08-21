@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mjpeg/flutter_mjpeg.dart';
 
-class VideoSctream extends StatefulWidget {
-  const VideoSctream({super.key});
+class VideoSctream extends StatelessWidget {
+  final String streamUrl;
+  const VideoSctream({super.key, required this.streamUrl});
 
-  @override
-  State<VideoSctream> createState() => _VideoSctreamState();
-}
-
-class _VideoSctreamState extends State<VideoSctream> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Center(
+        child: Mjpeg(
+          stream: streamUrl, 
+          isLive: true,),
+      ),
+    );
   }
 }

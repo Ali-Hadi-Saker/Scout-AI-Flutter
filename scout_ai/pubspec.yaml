@@ -39,6 +39,7 @@ dependencies:
   http: ^0.13.5
   flutter_mjpeg:
   video_player:
+  screenshot:
 
 dev_dependencies:
   flutter_test:

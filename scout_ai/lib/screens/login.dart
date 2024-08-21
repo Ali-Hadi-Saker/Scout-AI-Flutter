@@ -80,7 +80,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       controller: password,
                       icon: Icons.lock,
                       obscureText: true),
-                  CustomizedButton(text: "Login", onPressed: () => login()),
+                  CustomizedButton(
+                    text: "Login", 
+                    onPressed: () => {                      
+                      Navigator.pushNamed(context, "home")}),
                   const SizedBox(
                     height: 15,
                   ),

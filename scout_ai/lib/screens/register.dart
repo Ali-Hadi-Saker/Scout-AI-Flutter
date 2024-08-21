@@ -88,9 +88,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   CustomizedButton(
                       text: "Sign Up", onPressed: () => {createUser()}),
-                  const Text(
-                    "Already have an account?",
-                    style: TextStyle(color: Colors.white),
+                  Center(
+                    child: Row(
+                      children: [
+                        const Text(
+                          "Already have an account?",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        InkWell(
+                          onTap: ()=> Navigator.pushNamed(context, "login") ,
+                          child: Text(
+                            "Login",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),)
+                      ],
+                    ),
                   )
                 ]),
           ),

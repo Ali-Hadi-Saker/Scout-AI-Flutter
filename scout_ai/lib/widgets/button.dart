@@ -25,13 +25,13 @@ class CustomizedButton extends StatelessWidget {
               children: [
                 Text(
                   text,
-                  style: TextStyle(color: Colors.white, fontSize: 22),
+                  style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
                 if(suffexIcon != null) ...[
-                  SizedBox(width: 30,),
+                  SizedBox(width: 24,),
                   Icon(
                     suffexIcon!.icon,
-                    size: 30,
+                    size: 24,
                     color: Colors.white,)
                   
                 ]

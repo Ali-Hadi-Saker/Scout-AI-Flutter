@@ -15,7 +15,7 @@ class _VideoStreamState extends State<VideoStream> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(widget.streamUrl)
+    _controller = VideoPlayerController.networkUrl(Uri.parse(widget.streamUrl))
       ..initialize().then((_) {
         setState(() {});
         _controller.play();
@@ -42,3 +42,24 @@ class _VideoStreamState extends State<VideoStream> {
     _controller.dispose();
   }
 }
+// import 'package:flutter/material.dart';
+// import 'package:flutter_mjpeg/flutter_mjpeg.dart';
+
+// class VideoStream extends StatelessWidget {
+//   final String streamUrl;
+//   const VideoStream({super.key, required this.streamUrl});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Mjpeg(
+//       stream: streamUrl,
+//       isLive: true,
+//       error: (context, error, stackTrace) {
+//         return Center(child: Text('Failed to load stream'));
+//       },
+//       loading: (context) {
+//         return Center(child: CircularProgressIndicator());
+//       },
+//     );
+//   }
+// }

@@ -26,7 +26,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             'fname': fname.text,
             'email': email.text,
             'password': password.text
-          }));
+          })).timeout(const Duration(seconds: 15));
 
       if (response.statusCode == 201) {
         print('User registered successfully!');

@@ -24,6 +24,8 @@ class _LoginScreenState extends State<LoginScreen> {
           body: jsonEncode({"email": email.text, "password": password.text}));
       if (response.statusCode == 200) {
         Navigator.pushNamed(context, "home");
+        print('Status code: ${response.statusCode}');
+        print('Response body: ${response.body}');
       } else {
         print("faild to login");
         print('Status code: ${response.statusCode}');
@@ -82,10 +84,27 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(
                     height: 15,
                   ),
-                  const Text(
-                    "Don't have an account? Sign Up",
-                    style: TextStyle(color: Colors.white),
-                  )
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "Don't have an account? ",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, 'register'); 
+                        },
+                        child: const Text(
+                          "Sign Up",
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),

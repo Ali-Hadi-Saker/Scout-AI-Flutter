@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const RegisterScreen(),
+      home: TestScreen(),
       routes: {
         "register": (context)=> const RegisterScreen(),
         "login": (context)=> const LoginScreen(),
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         "upload-item": (context)=> const UploadItemScreen(),
         "car-control": (context)=> const CarControlScreen(),
         "search-result": (context)=> const SearchResultScreen(),
-        "test": (context) => Test(),
+        "test": (context) => TestScreen(),
 
       },
     );

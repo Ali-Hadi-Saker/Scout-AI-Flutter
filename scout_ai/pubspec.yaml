@@ -41,6 +41,7 @@ dependencies:
   video_player:
   screenshot:
   flutter_vlc_player:
+  webview_flutter: ^4.0.0
 
 dev_dependencies:
   flutter_test:

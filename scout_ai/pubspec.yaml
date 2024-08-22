@@ -40,6 +40,7 @@ dependencies:
   flutter_mjpeg:
   video_player:
   screenshot:
+  flutter_vlc_player:
 
 dev_dependencies:
   flutter_test:

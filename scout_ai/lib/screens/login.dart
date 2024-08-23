@@ -27,12 +27,20 @@ class _LoginScreenState extends State<LoginScreen> {
         var responseData = jsonDecode(response.body);
 
         String userDataJson = jsonEncode(responseData['user']);
+        String userToken = jsonEncode(responseData['token']);
+
         SharedPreferences prefs = await SharedPreferences.getInstance();
         await prefs.setString('userData', userDataJson);
+        await prefs.setString('userToken', userToken);
+
+        String data = prefs.getString('userData')!;
+        String token = prefs.getString('userToken')!;
+
+        print('user data: ${data}');
+        print('user token: ${token}');
 
         Navigator.pushNamed(context, "home");
-        String data = await prefs.getString('userData')!;
-        print('Response body: ${data}');
+
       } else {
         print("faild to login");
         print('Status code: ${response.statusCode}');

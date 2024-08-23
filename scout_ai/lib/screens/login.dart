@@ -4,6 +4,7 @@ import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/inputField.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -23,6 +24,9 @@ class _LoginScreenState extends State<LoginScreen> {
           headers: {"content-type": "application/json"},
           body: jsonEncode({"email": email.text, "password": password.text}));
       if (response.statusCode == 200) {
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        await prefs.setString('userData', response.body);
+
         Navigator.pushNamed(context, "home");
         print('Status code: ${response.statusCode}');
         print('Response body: ${response.body}');
@@ -81,9 +85,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       icon: Icons.lock,
                       obscureText: true),
                   CustomizedButton(
-                    text: "Login", 
-                    onPressed: () => {                      
-                      Navigator.pushNamed(context, "home")}),
+                      text: "Login",
+                      onPressed: () => {
+                            // Navigator.pushNamed(context, "home")
+                            login()
+                          }),
                   const SizedBox(
                     height: 15,
                   ),
@@ -96,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.pushNamed(context, 'register'); 
+                          Navigator.pushNamed(context, 'register');
                         },
                         child: const Text(
                           "Sign Up",

@@ -34,9 +34,9 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               
             ),
             SizedBox(height: 100,),
-            editInputField(hintText: "Username"),
+            editInputField(prefixIcon: Icon(Icons.person),hintText: "Username"),
             SizedBox(height: 20,),
-            editInputField(hintText: "Email")
+            editInputField(prefixIcon: Icon(Icons.email),hintText: "Email")
           ],
         ),
       ),

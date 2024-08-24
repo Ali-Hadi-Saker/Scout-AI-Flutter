@@ -11,12 +11,20 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
+  String? name;
+  void initState() {
+    super.initState();
+    loadUserData();
+  }
+
   void loadUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String userDataJson = await prefs.getString('userData')!;
 
     var userData = jsonDecode(userDataJson);
-    String name = userData['fname'];
+    setState(() {
+      name = userData['fname'];
+    });
     print('$name');
   }
 
@@ -29,22 +37,26 @@ class _SettingScreenState extends State<SettingScreen> {
             icon: Icon(Icons.arrow_back)),
         title: Center(child: Text("User Details")),
       ),
-      body: Column(
-        children: [
-          Row(
-            children: [
-              CircleAvatar(
-                backgroundColor: Colors.grey,
-                radius: 50,
-              )
-            ],
-          ),
-          MaterialButton(
-            onPressed: () => loadUserData(),
-            color: Colors.amber,
-            child: Text('click'),
-          )
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                CircleAvatar(
+                  backgroundColor: Colors.grey,
+                  radius: 40,
+                ),
+                Text('$name')
+              ],
+            ),
+            MaterialButton(
+              onPressed: () => loadUserData(),
+              color: Colors.amber,
+              child: Text('click'),
+            )
+          ],
+        ),
       ),
     );
   }

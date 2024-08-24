@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scout_ai/widgets/editInputField.dart';
 
 class UserInfoScreen extends StatefulWidget {
   const UserInfoScreen({super.key});
@@ -18,7 +19,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
         title: Center(child: Text("User Infos")),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(top: 8, bottom: 8, left: 18, right: 18),
         child: Column(
           children: [
             Center(
@@ -30,7 +31,12 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                   size: 30,
                   color: Colors.white,),
               ),
-            )
+              
+            ),
+            SizedBox(height: 100,),
+            editInputField(hintText: "Username"),
+            SizedBox(height: 20,),
+            editInputField(hintText: "Email")
           ],
         ),
       ),

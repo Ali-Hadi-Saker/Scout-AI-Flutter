@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/editInputField.dart';
 
 class UserInfoScreen extends StatefulWidget {
@@ -24,19 +25,47 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
           children: [
             Center(
               child: CircleAvatar(
-                backgroundColor: Colors.grey[400], 
+                backgroundColor: Colors.grey[400],
                 radius: 40,
                 child: Icon(
                   Icons.edit,
                   size: 30,
-                  color: Colors.white,),
+                  color: Colors.white,
+                ),
               ),
-              
             ),
-            SizedBox(height: 100,),
-            editInputField(prefixIcon: Icon(Icons.person),hintText: "Username"),
-            SizedBox(height: 20,),
-            editInputField(prefixIcon: Icon(Icons.email),hintText: "Email")
+            SizedBox(height: 20),
+            editInputField(prefixIcon: Icon(Icons.person), hintText: "Username"),
+            SizedBox(height: 20),
+            editInputField(prefixIcon: Icon(Icons.email), hintText: "Email"),
+            Spacer(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: CustomizedButton(
+                      text: "Save",
+                      onPressed: () {
+                        print("Save button pressed");
+                      },
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: CustomizedButton(
+                      text: "Discard",
+                      onPressed: () {
+                        print("Discard button pressed");
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

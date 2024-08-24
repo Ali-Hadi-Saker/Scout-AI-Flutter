@@ -4,6 +4,7 @@ import 'package:scout_ai/screens/home.dart';
 import 'package:scout_ai/screens/login.dart';
 import 'package:scout_ai/screens/searchResult.dart';
 import 'package:scout_ai/screens/settings.dart';
+import 'package:scout_ai/screens/uploadItem.dart';
 
 class BottomNav extends StatefulWidget {
   const BottomNav({super.key});
@@ -16,8 +17,8 @@ class _BottomNavState extends State<BottomNav> {
   int selectedIndex = 0;
   List screens = [
     const HomeScreen(),
-    const CarControlScreen(),
-    const SearchResultScreen(),
+    const UploadItemScreen(),
+    const CarControlScreen(),    
     const SettingScreen()
   ];
 

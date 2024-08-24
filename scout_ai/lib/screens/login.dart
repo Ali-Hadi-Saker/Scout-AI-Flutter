@@ -136,7 +136,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   
                   ),
                 ),
-                Container(height:60,child:  BottomNav())
               ],
             ),
             

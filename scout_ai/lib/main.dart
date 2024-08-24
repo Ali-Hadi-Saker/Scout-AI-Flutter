@@ -6,6 +6,7 @@ import 'package:scout_ai/screens/register.dart';
 import 'package:scout_ai/screens/searchResult.dart';
 import 'package:scout_ai/screens/test.dart';
 import 'package:scout_ai/screens/uploadItem.dart';
+import 'package:scout_ai/widgets/bottomNavigation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: LoginScreen(),
+      home: BottomNav(),
       routes: {
         "register": (context)=> const RegisterScreen(),
         "login": (context)=> const LoginScreen(),

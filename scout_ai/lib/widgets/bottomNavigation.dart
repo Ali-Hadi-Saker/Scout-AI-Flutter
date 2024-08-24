@@ -28,9 +28,10 @@ class _BottomNavState extends State<BottomNav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: screens[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
-        onTap: ,
+        onTap: itemTaped,
           selectedItemColor: Colors.blue,
           unselectedItemColor: Colors.grey.shade400,
           items: const [

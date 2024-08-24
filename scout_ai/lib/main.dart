@@ -4,6 +4,7 @@ import 'package:scout_ai/screens/home.dart';
 import 'package:scout_ai/screens/login.dart';
 import 'package:scout_ai/screens/register.dart';
 import 'package:scout_ai/screens/searchResult.dart';
+import 'package:scout_ai/screens/security.dart';
 import 'package:scout_ai/screens/settings.dart';
 import 'package:scout_ai/screens/test.dart';
 import 'package:scout_ai/screens/uploadItem.dart';
@@ -37,6 +38,8 @@ class MyApp extends StatelessWidget {
         "test": (context) => TestScreen(),
         "setting": (context) => SettingScreen(),
         "user-infos":(context) => UserInfoScreen(),
+        "security":(context) => SecurityScreen(),
+
 
       },
     );

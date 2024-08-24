@@ -81,7 +81,7 @@ class _SettingScreenState extends State<SettingScreen> {
             SizedBox(height: 20,),
             CustomizedButton(
               text: "Password and Security", 
-              onPressed: ()=>{print("Password and Security")},
+              onPressed: ()=>Navigator.pushNamed(context, "security"),
               suffexIcon: Icon(Icons.arrow_forward_ios_sharp),
               preffixIcon: Icon(Icons.shield_rounded),
               heigth: 80),              

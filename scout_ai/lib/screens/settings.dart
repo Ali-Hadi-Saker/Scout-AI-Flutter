@@ -13,6 +13,7 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
   String? name;
+  @override
   void initState() {
     super.initState();
     loadUserData();
@@ -35,8 +36,8 @@ class _SettingScreenState extends State<SettingScreen> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
-            icon: Icon(Icons.arrow_back)),
-        title: Center(child: Text("User Details")),
+            icon: const Icon(Icons.arrow_back)),
+        title: const Center(child: Text("User Details")),
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 8, bottom: 8, left: 18, right: 18),
@@ -54,7 +55,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   CircleAvatar(
                     backgroundColor: Colors.grey[400], 
                     radius: 30,
-                    child: Icon(
+                    child: const Icon(
                       Icons.person, 
                       size: 30,
                       color: Colors.white,
@@ -71,26 +72,26 @@ class _SettingScreenState extends State<SettingScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 120,),
+            const SizedBox(height: 120,),
             CustomizedButton(
               text: "User Infos", 
               onPressed: ()=>Navigator.pushNamed(context, "user-infos"),
-              suffexIcon: Icon(Icons.arrow_forward_ios_sharp),
-              preffixIcon: Icon(Icons.edit),
+              suffexIcon: const Icon(Icons.arrow_forward_ios_sharp),
+              preffixIcon: const Icon(Icons.edit),
               heigth: 80),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             CustomizedButton(
               text: "Password and Security", 
-              onPressed: ()=>Navigator.pushNamed(context, "security"),
-              suffexIcon: Icon(Icons.arrow_forward_ios_sharp),
-              preffixIcon: Icon(Icons.shield_rounded),
+              onPressed: ()=> Navigator.pushNamed(context, "security"),
+              suffexIcon: const Icon(Icons.arrow_forward_ios_sharp),
+              preffixIcon: const Icon(Icons.shield_rounded),
               heigth: 80),              
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             CustomizedButton(
               text: "History", 
-              onPressed: ()=>{print("History")},
-              suffexIcon: Icon(Icons.arrow_forward_ios_sharp),
-              preffixIcon: Icon(Icons.history),
+              onPressed: ()=> Navigator.pushNamed(context, "history"),
+              suffexIcon: const Icon(Icons.arrow_forward_ios_sharp),
+              preffixIcon: const Icon(Icons.history),
               heigth: 80)
 
           ],

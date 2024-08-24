@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scout_ai/screens/carControl.dart';
+import 'package:scout_ai/screens/history.dart';
 import 'package:scout_ai/screens/home.dart';
 import 'package:scout_ai/screens/login.dart';
 import 'package:scout_ai/screens/register.dart';
@@ -39,6 +40,8 @@ class MyApp extends StatelessWidget {
         "setting": (context) => SettingScreen(),
         "user-infos":(context) => UserInfoScreen(),
         "security":(context) => SecurityScreen(),
+        "history":(context) => HistoryScreen(),
+
 
 
       },

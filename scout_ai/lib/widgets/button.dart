@@ -5,9 +5,10 @@ class CustomizedButton extends StatelessWidget {
   final VoidCallback onPressed;
   final double? width;
   final double? heigth;
+  final Icon? preffixIcon;
   final Icon? suffexIcon;
   const CustomizedButton(
-      {super.key, required this.text, required this.onPressed, this.width, this.suffexIcon, this.heigth});
+      {super.key, required this.text, required this.onPressed, this.width, this.suffexIcon, this.heigth, this.preffixIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +24,14 @@ class CustomizedButton extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                if(preffixIcon != null) ...[
+                  Icon(
+                    preffixIcon!.icon,
+                    size: 24,
+                    color: Colors.white,
+                  ),
+                  SizedBox(width: 24,)
+                ],
                 Text(
                   text,
                   style: TextStyle(color: Colors.white, fontSize: 20),

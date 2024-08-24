@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:scout_ai/widgets/bottomNavigation.dart';
@@ -68,72 +69,79 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           Padding(
             padding: const EdgeInsets.all(25),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Hello,\nWelcome Back!!",
-                      style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 60,
-                  ),
-                  InputField(
-                      hintText: "Email",
-                      controller: email,
-                      icon: Icons.email,
-                      obscureText: false),
-                  InputField(
-                      hintText: "Password",
-                      controller: password,
-                      icon: Icons.lock,
-                      obscureText: true),
-                  CustomizedButton(
-                      text: "Login",
-                      onPressed: () => {
-                            // Navigator.pushNamed(context, "home")
-                            login()
-                          }),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        "Don't have an account? ",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, 'register');
-                        },
-                        child: const Text(
-                          "Sign Up",
-                          style: TextStyle(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold,
+            child: Column(
+              children: [
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "Hello,\nWelcome Back!!",
+                            style: TextStyle(
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
+                        const SizedBox(
+                          height: 60,
+                        ),
+                        InputField(
+                            hintText: "Email",
+                            controller: email,
+                            icon: Icons.email,
+                            obscureText: false),
+                        InputField(
+                            hintText: "Password",
+                            controller: password,
+                            icon: Icons.lock,
+                            obscureText: true),
+                        CustomizedButton(
+                            text: "Login",
+                            onPressed: () => {
+                                  // Navigator.pushNamed(context, "home")
+                                  login()
+                                }),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Don't have an account? ",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(context, 'register');
+                              },
+                              child: const Text(
+                                "Sign Up",
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        
+                      ],
+                    ),
                   
-                ],
-              ),
-            
+                  ),
+                ),
+                Container(height:60,child:  BottomNav())
+              ],
             ),
             
           ),
-          BottomNav()
+          
         ],
       ),
     );

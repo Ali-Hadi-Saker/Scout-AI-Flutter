@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:scout_ai/widgets/bottomNavigation.dart';
 import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/inputField.dart';
 import 'package:http/http.dart' as http;
@@ -125,10 +126,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ],
                   ),
+                  
                 ],
               ),
+            
             ),
-          )
+            
+          ),
+          BottomNav()
         ],
       ),
     );

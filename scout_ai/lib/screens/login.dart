@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:scout_ai/widgets/bottomNavigation.dart';
+import 'package:scout_ai/widgets/bottom_navigation.dart';
 import 'package:scout_ai/widgets/button.dart';
-import 'package:scout_ai/widgets/inputField.dart';
+import 'package:scout_ai/widgets/input_field.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';

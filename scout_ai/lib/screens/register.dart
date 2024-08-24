@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scout_ai/widgets/button.dart';
-import 'package:scout_ai/widgets/inputField.dart';
+import 'package:scout_ai/widgets/input_field.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 

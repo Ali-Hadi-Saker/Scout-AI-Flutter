@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_joystick/flutter_joystick.dart';
-import 'package:scout_ai/widgets/videoStream.dart';
+import 'package:scout_ai/widgets/video_stream.dart';
 
 class CarControlScreen extends StatefulWidget {
   const CarControlScreen({super.key});

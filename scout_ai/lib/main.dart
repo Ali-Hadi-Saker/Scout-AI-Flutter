@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:scout_ai/screens/carControl.dart';
+import 'package:scout_ai/screens/car_control.dart';
 import 'package:scout_ai/screens/history.dart';
 import 'package:scout_ai/screens/home.dart';
 import 'package:scout_ai/screens/login.dart';
 import 'package:scout_ai/screens/register.dart';
-import 'package:scout_ai/screens/searchResult.dart';
+import 'package:scout_ai/screens/search_result.dart';
 import 'package:scout_ai/screens/security.dart';
 import 'package:scout_ai/screens/settings.dart';
 import 'package:scout_ai/screens/test.dart';
-import 'package:scout_ai/screens/uploadItem.dart';
-import 'package:scout_ai/screens/userInfos.dart';
-import 'package:scout_ai/widgets/bottomNavigation.dart';
+import 'package:scout_ai/screens/upload_item.dart';
+import 'package:scout_ai/screens/user_infos.dart';
+import 'package:scout_ai/widgets/bottom_navigation.dart';
 
 void main() {
   runApp(const MyApp());

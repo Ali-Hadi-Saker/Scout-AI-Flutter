@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scout_ai/widgets/button.dart';
-import 'package:scout_ai/widgets/editInputField.dart';
+import 'package:scout_ai/widgets/edit_input_field.dart';
 
 class UserInfoScreen extends StatefulWidget {
   const UserInfoScreen({super.key});
@@ -16,8 +16,8 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
-            icon: Icon(Icons.arrow_back)),
-        title: Center(child: Text("User Infos")),
+            icon: const Icon(Icons.arrow_back)),
+        title: const Center(child: Text("User Infos")),
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 8, bottom: 8, left: 18, right: 18),
@@ -27,18 +27,19 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               child: CircleAvatar(
                 backgroundColor: Colors.grey[400],
                 radius: 40,
-                child: Icon(
+                child: const Icon(
                   Icons.edit,
                   size: 30,
                   color: Colors.white,
                 ),
               ),
             ),
-            SizedBox(height: 20),
-            editInputField(prefixIcon: Icon(Icons.person), hintText: "Username"),
-            SizedBox(height: 20),
-            editInputField(prefixIcon: Icon(Icons.email), hintText: "Email"),
-            Spacer(),
+            const SizedBox(height: 100),
+            const editInputField(
+                prefixIcon: Icon(Icons.person), hintText: "Username"),
+            const SizedBox(height: 20),
+            const editInputField(prefixIcon: Icon(Icons.email), hintText: "Email"),
+            const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

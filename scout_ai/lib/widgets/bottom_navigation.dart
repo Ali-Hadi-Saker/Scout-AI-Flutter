@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:scout_ai/screens/carControl.dart';
+import 'package:scout_ai/screens/car_control.dart';
 import 'package:scout_ai/screens/home.dart';
 import 'package:scout_ai/screens/login.dart';
-import 'package:scout_ai/screens/searchResult.dart';
+import 'package:scout_ai/screens/search_result.dart';
 import 'package:scout_ai/screens/settings.dart';
-import 'package:scout_ai/screens/uploadItem.dart';
+import 'package:scout_ai/screens/upload_item.dart';
 
 class BottomNav extends StatefulWidget {
   const BottomNav({super.key});

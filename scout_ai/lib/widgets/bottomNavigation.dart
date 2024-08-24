@@ -3,6 +3,7 @@ import 'package:scout_ai/screens/carControl.dart';
 import 'package:scout_ai/screens/home.dart';
 import 'package:scout_ai/screens/login.dart';
 import 'package:scout_ai/screens/searchResult.dart';
+import 'package:scout_ai/screens/settings.dart';
 
 class BottomNav extends StatefulWidget {
   const BottomNav({super.key});
@@ -14,10 +15,10 @@ class BottomNav extends StatefulWidget {
 class _BottomNavState extends State<BottomNav> {
   int selectedIndex = 0;
   List screens = [
-    HomeScreen(),
-    CarControlScreen(),
-    SearchResultScreen(),
-    LoginScreen()
+    const HomeScreen(),
+    const CarControlScreen(),
+    const SearchResultScreen(),
+    const SettingScreen()
   ];
 
   void itemTaped (int index){

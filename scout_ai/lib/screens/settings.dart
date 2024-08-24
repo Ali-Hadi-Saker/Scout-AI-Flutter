@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -11,8 +13,11 @@ class SettingScreen extends StatefulWidget {
 class _SettingScreenState extends State<SettingScreen> {
   void loadUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String userData = await prefs.getString('userData')!;
-    print('$userData');
+    String userDataJson = await prefs.getString('userData')!;
+
+    var userData = jsonDecode(userDataJson);
+    String name = userData['fname'];
+    print('$name');
   }
 
   @override
@@ -34,7 +39,11 @@ class _SettingScreenState extends State<SettingScreen> {
               )
             ],
           ),
-          MaterialButton(onPressed: () => loadUserData(),color: Colors.amber,child: Text('click'),)
+          MaterialButton(
+            onPressed: () => loadUserData(),
+            color: Colors.amber,
+            child: Text('click'),
+          )
         ],
       ),
     );

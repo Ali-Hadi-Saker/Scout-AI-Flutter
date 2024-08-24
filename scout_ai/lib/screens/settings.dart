@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:scout_ai/widgets/button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -41,48 +42,46 @@ class _SettingScreenState extends State<SettingScreen> {
         padding: const EdgeInsets.only(top: 8, bottom: 8, left: 18, right: 18),
         child: Column(
           children: [
-Container(
-  padding: const EdgeInsets.all(16), 
-  decoration: BoxDecoration(
-    color: Colors.grey[300], 
-    borderRadius: BorderRadius.circular(8), 
-    boxShadow: [
-      BoxShadow(
-        color: Colors.black.withOpacity(0.2),
-        spreadRadius: 2,
-        blurRadius: 8,
-        offset: Offset(0, 4),
-      ),
-    ],
-  ),
-  child: Row(
-    children: [
-      CircleAvatar(
-        backgroundColor: Colors.grey[400], 
-        radius: 30,
-        child: Icon(
-          Icons.person, 
-          size: 30,
-          color: Colors.white,
-        ),
-      ),
-      const SizedBox(width: 20),
-      Text(
-        '$name',
-        style: const TextStyle(
-          fontSize: 18,
-          color: Colors.black87, 
-        ),
-      ),
-    ],
-  ),
-),
+            Container(
+              padding: const EdgeInsets.all(16), 
+              decoration: BoxDecoration(
+                color: Colors.grey[300], 
+                borderRadius: BorderRadius.circular(8), 
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    spreadRadius: 2,
+                    blurRadius: 8,
+                    offset: Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    backgroundColor: Colors.grey[400], 
+                    radius: 30,
+                    child: Icon(
+                      Icons.person, 
+                      size: 30,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(width: 20),
+                  Text(
+                    '$name',
+                    style: const TextStyle(
+                      fontSize: 18,
+                      color: Colors.black87, 
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            CustomizedButton(text: "User Infos", onPressed: ()=>{print("user infos")}),
+            CustomizedButton(text: "Password and Security", onPressed: ()=>{print("Password and Security")}),
+            CustomizedButton(text: "History", onPressed: ()=>{print("History")})
 
-            MaterialButton(
-              onPressed: () => loadUserData(),
-              color: Colors.amber,
-              child: Text('click'),
-            )
           ],
         ),
       ),

@@ -10,6 +10,13 @@ class UserInfoScreen extends StatefulWidget {
 class _UserInfoScreenState extends State<UserInfoScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(Icons.arrow_back)),
+        title: Center(child: Text("User Infos")),
+      ),
+    );
   }
 }

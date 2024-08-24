@@ -47,14 +47,7 @@ class _SettingScreenState extends State<SettingScreen> {
               decoration: BoxDecoration(
                 color: Colors.grey[300], 
                 borderRadius: BorderRadius.circular(8), 
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
-                    spreadRadius: 2,
-                    blurRadius: 8,
-                    offset: Offset(0, 4),
-                  ),
-                ],
+                
               ),
               child: Row(
                 children: [
@@ -78,9 +71,27 @@ class _SettingScreenState extends State<SettingScreen> {
                 ],
               ),
             ),
-            CustomizedButton(text: "User Infos", onPressed: ()=>{print("user infos")}),
-            CustomizedButton(text: "Password and Security", onPressed: ()=>{print("Password and Security")}),
-            CustomizedButton(text: "History", onPressed: ()=>{print("History")})
+            SizedBox(height: 120,),
+            CustomizedButton(
+              text: "User Infos", 
+              onPressed: ()=>{print("user infos")},
+              suffexIcon: Icon(Icons.arrow_forward_ios_sharp),
+              preffixIcon: Icon(Icons.edit),
+              heigth: 80),
+            SizedBox(height: 20,),
+            CustomizedButton(
+              text: "Password and Security", 
+              onPressed: ()=>{print("Password and Security")},
+              suffexIcon: Icon(Icons.arrow_forward_ios_sharp),
+              preffixIcon: Icon(Icons.shield_rounded),
+              heigth: 80),              
+            SizedBox(height: 20,),
+            CustomizedButton(
+              text: "History", 
+              onPressed: ()=>{print("History")},
+              suffexIcon: Icon(Icons.arrow_forward_ios_sharp),
+              preffixIcon: Icon(Icons.history),
+              heigth: 80)
 
           ],
         ),

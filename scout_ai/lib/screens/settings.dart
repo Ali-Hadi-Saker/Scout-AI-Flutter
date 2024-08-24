@@ -19,7 +19,7 @@ class _SettingScreenState extends State<SettingScreen> {
 
   void loadUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String userDataJson = await prefs.getString('userData')!;
+    String userDataJson = prefs.getString('userData')!;
 
     var userData = jsonDecode(userDataJson);
     setState(() {
@@ -38,18 +38,46 @@ class _SettingScreenState extends State<SettingScreen> {
         title: Center(child: Text("User Details")),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(top: 8, bottom: 8, left: 18, right: 18),
         child: Column(
           children: [
-            Row(
-              children: [
-                CircleAvatar(
-                  backgroundColor: Colors.grey,
-                  radius: 40,
-                ),
-                Text('$name')
-              ],
-            ),
+Container(
+  padding: const EdgeInsets.all(16), 
+  decoration: BoxDecoration(
+    color: Colors.grey[300], 
+    borderRadius: BorderRadius.circular(8), 
+    boxShadow: [
+      BoxShadow(
+        color: Colors.black.withOpacity(0.2),
+        spreadRadius: 2,
+        blurRadius: 8,
+        offset: Offset(0, 4),
+      ),
+    ],
+  ),
+  child: Row(
+    children: [
+      CircleAvatar(
+        backgroundColor: Colors.grey[400], 
+        radius: 30,
+        child: Icon(
+          Icons.person, 
+          size: 30,
+          color: Colors.white,
+        ),
+      ),
+      const SizedBox(width: 20),
+      Text(
+        '$name',
+        style: const TextStyle(
+          fontSize: 18,
+          color: Colors.black87, 
+        ),
+      ),
+    ],
+  ),
+),
+
             MaterialButton(
               onPressed: () => loadUserData(),
               color: Colors.amber,

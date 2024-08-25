@@ -52,6 +52,16 @@ class _SecurityScreenState extends State<SecurityScreen> {
           editInputField(
             hintText: currentPassword!,
             prefixIcon: Icon(Icons.shield_rounded),
+          ),
+          editInputField(
+            hintText: "New Password", 
+            prefixIcon: Icon(Icons.shield_rounded),
+            controller: newPasswordController,
+          ),
+          editInputField(
+            hintText: "Confirm New Password", 
+            prefixIcon: Icon(Icons.shield_rounded),
+            controller: confirmNewPasswordController,
           )
         ],
       ),

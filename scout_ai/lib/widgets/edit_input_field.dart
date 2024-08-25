@@ -9,17 +9,21 @@ class editInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: controller,      
-      decoration: InputDecoration(
-        prefixIcon: prefixIcon,        
-        hintText: hintText,
-        hintStyle: TextStyle(color: Colors.grey),
-        enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.grey),
-        ),
-        focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.blue),
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      child: TextField(
+        
+        controller: controller,      
+        decoration: InputDecoration(
+          prefixIcon: prefixIcon,        
+          hintText: hintText,
+          hintStyle: TextStyle(color: Colors.grey),
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.grey),
+          ),
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue),
+          ),
         ),
       ),
     );

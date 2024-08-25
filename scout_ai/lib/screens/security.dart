@@ -1,6 +1,9 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/edit_input_field.dart';
 import 'package:scout_ai/widgets/screen_icon.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -43,27 +46,38 @@ class _SecurityScreenState extends State<SecurityScreen> {
             icon: Icon(Icons.arrow_back)),
         title: Center(child: Text("Password and Security")),
       ),
-      body: Column(
-        children: [
-          ScreenIcon(screenIon: Icon(Icons.shield_rounded)),
-          SizedBox(
-            height: 100,
-          ),
-          editInputField(
-            hintText: currentPassword!,
-            prefixIcon: Icon(Icons.shield_rounded),
-          ),
-          editInputField(
-            hintText: "New Password", 
-            prefixIcon: Icon(Icons.shield_rounded),
-            controller: newPasswordController,
-          ),
-          editInputField(
-            hintText: "Confirm New Password", 
-            prefixIcon: Icon(Icons.shield_rounded),
-            controller: confirmNewPasswordController,
-          )
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+        child: Column(
+          children: [
+            ScreenIcon(screenIon: Icon(Icons.shield_rounded)),
+            SizedBox(
+              height: 100,
+            ),
+            editInputField(
+              hintText: currentPassword!,
+              prefixIcon: Icon(Icons.shield_rounded),
+            ),
+            editInputField(
+              hintText: "New Password", 
+              prefixIcon: Icon(Icons.shield_rounded),
+              controller: newPasswordController,
+            ),
+            editInputField(
+              hintText: "Confirm New Password", 
+              prefixIcon: Icon(Icons.shield_rounded),
+              controller: confirmNewPasswordController,
+            ),
+            Spacer(),
+            Row(
+              children: [
+                Expanded(child: CustomizedButton(text: 'Save', onPressed: ()=> print('Change saved'))),
+                Expanded(child: CustomizedButton(text: 'Save', onPressed: ()=> print('Discard Changes')))
+
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

@@ -3,13 +3,16 @@ import 'package:flutter/material.dart';
 class editInputField extends StatelessWidget {
   final String hintText;
   final Icon prefixIcon;
-  const editInputField({super.key, required this.hintText, required this.prefixIcon});
+  final TextEditingController controller;
+  const editInputField(
+      {super.key, required this.hintText, required this.prefixIcon, required this.controller});
 
   @override
   Widget build(BuildContext context) {
-    return TextField(      
+    return TextField(
+      controller: controller,
       decoration: InputDecoration(
-        prefixIcon: prefixIcon,
+        prefixIcon: prefixIcon,        
         hintText: hintText,
         hintStyle: TextStyle(color: Colors.grey),
         enabledBorder: UnderlineInputBorder(

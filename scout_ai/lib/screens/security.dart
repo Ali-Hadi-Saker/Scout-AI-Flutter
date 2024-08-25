@@ -18,11 +18,20 @@ class _SecurityScreenState extends State<SecurityScreen> {
   String? confirmNewPassword;
   TextEditingController newPasswordController = TextEditingController();
   TextEditingController confirmNewPasswordController = TextEditingController();
+
+  void initState() {
+    super.initState();
+    loadUserData();
+  }
+
   void loadUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String userDataJson = prefs.getString('userData')!;
 
     var userData = jsonDecode(userDataJson);
+    setState(() {
+      currentPassword = userData['password'];
+    });
   }
 
   @override
@@ -41,9 +50,9 @@ class _SecurityScreenState extends State<SecurityScreen> {
             height: 100,
           ),
           editInputField(
-              hintText: "Current Password",
-              prefixIcon: Icon(Icons.shield_rounded),
-              controller: controller)
+            hintText: currentPassword!,
+            prefixIcon: Icon(Icons.shield_rounded),
+          )
         ],
       ),
     );

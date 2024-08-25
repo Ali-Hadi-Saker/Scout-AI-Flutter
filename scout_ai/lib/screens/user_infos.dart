@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/edit_input_field.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class UserInfoScreen extends StatefulWidget {
   const UserInfoScreen({super.key});
@@ -10,6 +13,19 @@ class UserInfoScreen extends StatefulWidget {
 }
 
 class _UserInfoScreenState extends State<UserInfoScreen> {
+  String? name;
+  String? email;
+  void loadUserData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String userDataJson = prefs.getString('userData')!;
+
+    var userData = jsonDecode(userDataJson);
+    setState(() {
+      name = userData['fname'];
+      email = userData['email'];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +54,8 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
             const editInputField(
                 prefixIcon: Icon(Icons.person), hintText: "Username"),
             const SizedBox(height: 20),
-            const editInputField(prefixIcon: Icon(Icons.email), hintText: "Email"),
+            const editInputField(
+                prefixIcon: Icon(Icons.email), hintText: "Email"),
             const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

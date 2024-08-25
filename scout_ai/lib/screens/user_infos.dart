@@ -15,6 +15,14 @@ class UserInfoScreen extends StatefulWidget {
 class _UserInfoScreenState extends State<UserInfoScreen> {
   String? name;
   String? email;
+  TextEditingController fnameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  @override
+  void initState() {
+    super.initState();
+    loadUserData();
+  }
+
   void loadUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String userDataJson = prefs.getString('userData')!;
@@ -23,6 +31,8 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
     setState(() {
       name = userData['fname'];
       email = userData['email'];
+      fnameController.text = name!;
+      emailController.text = email!;
     });
   }
 

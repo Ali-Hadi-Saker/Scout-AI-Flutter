@@ -71,8 +71,14 @@ class _SecurityScreenState extends State<SecurityScreen> {
             Spacer(),
             Row(
               children: [
-                Expanded(child: CustomizedButton(text: 'Save', onPressed: ()=> print('Change saved'))),
-                Expanded(child: CustomizedButton(text: 'Save', onPressed: ()=> print('Discard Changes')))
+                Expanded(child: Padding(
+                  padding: const EdgeInsets.only(right: 20),
+                  child: CustomizedButton(text: 'Save', onPressed: ()=> print('Change saved')),
+                )),
+                Expanded(child: Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: CustomizedButton(text: 'Save', onPressed: ()=> print('Discard Changes')),
+                ))
 
               ],
             )

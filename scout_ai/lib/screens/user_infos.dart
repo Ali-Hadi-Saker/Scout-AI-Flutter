@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/edit_input_field.dart';
+import 'package:scout_ai/widgets/screen_icon.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserInfoScreen extends StatefulWidget {
@@ -49,17 +50,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
         padding: const EdgeInsets.only(top: 8, bottom: 8, left: 18, right: 18),
         child: Column(
           children: [
-            Center(
-              child: CircleAvatar(
-                backgroundColor: Colors.grey[400],
-                radius: 40,
-                child: const Icon(
-                  Icons.edit,
-                  size: 30,
-                  color: Colors.white,
-                ),
-              ),
-            ),
+            ScreenIcon(screenIon: Icon(Icons.edit)),
             const SizedBox(height: 100),
             editInputField(
                 prefixIcon: Icon(Icons.person), 

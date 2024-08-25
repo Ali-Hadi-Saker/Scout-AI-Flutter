@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:scout_ai/widgets/edit_input_field.dart';
+import 'package:scout_ai/widgets/screen_icon.dart';
 
 class SecurityScreen extends StatefulWidget {
   const SecurityScreen({super.key});
@@ -8,6 +10,7 @@ class SecurityScreen extends StatefulWidget {
 }
 
 class _SecurityScreenState extends State<SecurityScreen> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,17 +22,12 @@ class _SecurityScreenState extends State<SecurityScreen> {
       ),
       body: Column(
         children: [
-          Center(
-            child: CircleAvatar(
-              backgroundColor: Colors.grey[400],
-              radius: 40,
-              child: Icon(
-                Icons.shield_moon_rounded,
-                color: Colors.white,
-                size: 30,
-              ),
-            ),
-          )
+          ScreenIcon(screenIon: Icon(Icons.shield_rounded)),
+          SizedBox(height: 100,),
+          editInputField(
+            hintText: "Current Password", 
+            prefixIcon: Icon(Icons.shield_rounded), 
+            controller: controller)
         ],
       ),
     );

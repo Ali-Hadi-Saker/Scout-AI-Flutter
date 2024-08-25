@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class editInputField extends StatelessWidget {
   final String hintText;
   final Icon prefixIcon;
-  final TextEditingController controller;
+  final TextEditingController? controller;
   const editInputField(
-      {super.key, required this.hintText, required this.prefixIcon, required this.controller});
+      {super.key, required this.hintText, required this.prefixIcon, this.controller});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      controller: controller,
+      controller: controller,      
       decoration: InputDecoration(
         prefixIcon: prefixIcon,        
         hintText: hintText,

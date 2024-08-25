@@ -61,11 +61,16 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               ),
             ),
             const SizedBox(height: 100),
-            const editInputField(
-                prefixIcon: Icon(Icons.person), hintText: "Username"),
+            editInputField(
+                prefixIcon: Icon(Icons.person), 
+                hintText: "Username",
+                controller: fnameController,),
             const SizedBox(height: 20),
-            const editInputField(
-                prefixIcon: Icon(Icons.email), hintText: "Email"),
+            editInputField(
+                prefixIcon: Icon(Icons.email), 
+                hintText: "Email",
+                controller: emailController,
+                ),
             const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

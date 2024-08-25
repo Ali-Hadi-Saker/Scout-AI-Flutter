@@ -17,6 +17,21 @@ class _SecurityScreenState extends State<SecurityScreen> {
             icon: Icon(Icons.arrow_back)),
         title: Center(child: Text("Password and Security")),
       ),
+      body: Column(
+        children: [
+          Center(
+            child: CircleAvatar(
+              backgroundColor: Colors.grey[400],
+              radius: 40,
+              child: Icon(
+                Icons.shield_moon_rounded,
+                color: Colors.white,
+                size: 30,
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

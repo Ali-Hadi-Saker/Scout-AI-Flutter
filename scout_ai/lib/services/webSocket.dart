@@ -10,4 +10,6 @@ class WebSocketService {
   void send(message) {
     _channel.sink.add(message);
   }
+
+  Stream<dynamic> get stream => _channel.stream;
 }

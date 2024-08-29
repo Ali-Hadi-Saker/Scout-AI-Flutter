@@ -59,8 +59,11 @@ class _CarControlScreenState extends State<CarControlScreen> {
                 child: Center(
               child: Joystick(
                 mode: JoystickMode.all,
-                listener: (details) =>
-                    {print('Joystick direction: (${details.x}, ${details.y})')},
+                listener: (details) {
+                  String command = 'x: ${details.x}, y: ${details.y}';
+                  _webSocketService.send(command);
+                  print('Joystick direction: ${command}');
+                },
               ),
             ))
           ],

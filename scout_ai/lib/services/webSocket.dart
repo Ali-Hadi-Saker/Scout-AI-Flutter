@@ -1,5 +1,4 @@
 import 'package:web_socket_channel/web_socket_channel.dart';
-import 'package:flutter/foundation.dart';
 
 class WebSocketService {
   final WebSocketChannel _channel;
@@ -12,4 +11,8 @@ class WebSocketService {
   }
 
   Stream<dynamic> get stream => _channel.stream;
+
+  void dispose() {
+    _channel.sink.close();
+  }
 }

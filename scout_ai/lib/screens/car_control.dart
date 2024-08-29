@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_joystick/flutter_joystick.dart';
+import 'package:scout_ai/services/webSocket.dart';
 import 'package:scout_ai/widgets/video_stream.dart';
 
 class CarControlScreen extends StatefulWidget {
@@ -12,19 +11,33 @@ class CarControlScreen extends StatefulWidget {
 }
 
 class _CarControlScreenState extends State<CarControlScreen> {
+  late WebSocketService _webSocketService;
+
+  @override
+  void initState() {
+    super.initState();
+    _webSocketService = WebSocketService('url');
+  }
+
+  @override
+  void dispose() {
+    _webSocketService.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: ()=>{
-            Navigator.pop(context)}, 
+            onPressed: () => {Navigator.pop(context)},
             icon: Icon(Icons.arrow_back)),
-          title: Center(child: Text("Car Control")),
-          actions: [IconButton(onPressed: ()=>{
-            Navigator.pushNamed(context, "search-result")
-          }, 
-          icon: Icon(Icons.arrow_forward))],
+        title: Center(child: Text("Car Control")),
+        actions: [
+          IconButton(
+              onPressed: () => {Navigator.pushNamed(context, "search-result")},
+              icon: Icon(Icons.arrow_forward))
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(15),
@@ -40,15 +53,16 @@ class _CarControlScreenState extends State<CarControlScreen> {
             //     child: Text("video Stream", style: TextStyle(color: Colors.white, fontSize: 24),),
             //   ),
             // ),
-            const Expanded(child: VideoStream(streamUrl: 'http://192.168.1.4:81/stream')),
+            const Expanded(
+                child: VideoStream(streamUrl: 'http://192.168.1.4:81/stream')),
             Expanded(
-              child: Center(
-                child: Joystick(
-                  mode: JoystickMode.all,
-                  listener: (details)=>{
-                    print('Joystick direction: (${details.x}, ${details.y})')
-                  },),
-              ))
+                child: Center(
+              child: Joystick(
+                mode: JoystickMode.all,
+                listener: (details) =>
+                    {print('Joystick direction: (${details.x}, ${details.y})')},
+              ),
+            ))
           ],
         ),
       ),

@@ -40,14 +40,13 @@ class _CarControlScreenState extends State<CarControlScreen> {
             //     child: Text("video Stream", style: TextStyle(color: Colors.white, fontSize: 24),),
             //   ),
             // ),
-            const Expanded(child: VideoStream(streamUrl: 'http://192.168.0.107')),
+            const Expanded(child: VideoStream(streamUrl: 'http://192.168.1.4:81/stream')),
             Expanded(
               child: Center(
                 child: Joystick(
                   mode: JoystickMode.all,
                   listener: (details)=>{
                     print('Joystick direction: (${details.x}, ${details.y})')
-
                   },),
               ))
           ],

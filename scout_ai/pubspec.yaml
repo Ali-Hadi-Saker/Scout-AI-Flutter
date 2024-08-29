@@ -43,6 +43,7 @@ dependencies:
   flutter_vlc_player:
   webview_flutter: ^4.0.0
   shared_preferences: ^2.2.3
+  web_socket_channel:
 
 dev_dependencies:
   flutter_test:

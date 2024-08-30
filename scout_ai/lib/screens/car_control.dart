@@ -16,7 +16,7 @@ class _CarControlScreenState extends State<CarControlScreen> {
   @override
   void initState() {
     super.initState();
-    _webSocketService = WebSocketService('url');
+    _webSocketService = WebSocketService('ws://10.0.2.2:8080');
   }
 
   @override

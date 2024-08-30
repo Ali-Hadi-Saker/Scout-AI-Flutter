@@ -54,7 +54,7 @@ class _CarControlScreenState extends State<CarControlScreen> {
             //   ),
             // ),
             const Expanded(
-                child: VideoStream(streamUrl: 'http://192.168.1.4:81/stream')),
+                child: VideoStream(streamUrl: 'ws://10.0.2.2:8080')),
             Expanded(
                 child: Center(
               child: Joystick(

@@ -13,18 +13,17 @@ class VideoStream extends StatefulWidget {
 class _VideoStreamState extends State<VideoStream> {
   Uint8List? _imageData;
   bool _isLoading = true;
-  
+
   @override
   Widget build(BuildContext context) {
-    return Mjpeg(
-      stream: widget.streamUrl,
-      isLive: true,
-      error: (context, error, stackTrace) {
-        return Center(child: Text('Failed to load stream'));
-      },
-      loading: (context) {
-        return Center(child: CircularProgressIndicator());
-      },
-    );
+    return StreamBuilder<Uint8List>(
+        stream: widget.stream,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        });
   }
 }

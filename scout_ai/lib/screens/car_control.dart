@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_joystick/flutter_joystick.dart';
-import 'package:scout_ai/services/webSocket.dart';
+import 'package:scout_ai/services/websocket.dart';
 import 'package:scout_ai/widgets/video_stream.dart';
 
 class CarControlScreen extends StatefulWidget {
@@ -43,18 +43,8 @@ class _CarControlScreenState extends State<CarControlScreen> {
         padding: const EdgeInsets.all(15),
         child: Column(
           children: [
-            // Container(
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(10),
-            //     color: Colors.black
-            //   ),
-            //   height: MediaQuery.of(context).size.width,
-            //   child: Center(
-            //     child: Text("video Stream", style: TextStyle(color: Colors.white, fontSize: 24),),
-            //   ),
-            // ),
-            const Expanded(
-                child: VideoStream(streamUrl: 'ws://10.0.2.2:8080')),
+            Expanded(
+                child: VideoStream(stream: _webSocketService.videoStream)),
             Expanded(
                 child: Center(
               child: Joystick(

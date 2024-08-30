@@ -44,7 +44,7 @@ dependencies:
   webview_flutter: ^4.0.0
   shared_preferences: ^2.2.3
   web_socket_channel:
-  flutter_image_compress:
+  
 
 dev_dependencies:
   flutter_test:

@@ -11,7 +11,10 @@ class WebSocketService {
     _channel.stream.listen((data) {
       if (data is Uint8List) {
         _controller.add(data);
-      }
+      }else {
+          
+          print('Unexpected data type: ${data.runtimeType}');
+        }
     });
   }
 

@@ -24,6 +24,12 @@ class _VideoStreamState extends State<VideoStream> {
               child: CircularProgressIndicator(),
             );
           }
+          if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          }
+          if(snapshot.hasData){
+            
+          }
         });
   }
 }

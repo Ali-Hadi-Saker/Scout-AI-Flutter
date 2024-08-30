@@ -11,6 +11,9 @@ class VideoStream extends StatefulWidget {
 }
 
 class _VideoStreamState extends State<VideoStream> {
+  Uint8List? _imageData;
+  bool _isLoading = true;
+  
   @override
   Widget build(BuildContext context) {
     return Mjpeg(

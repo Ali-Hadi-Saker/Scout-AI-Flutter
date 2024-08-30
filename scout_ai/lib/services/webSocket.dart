@@ -11,12 +11,16 @@ class WebSocketService {
     _channel.stream.listen((data) {
       if (data is Uint8List) {
         _controller.add(data);
-      }else {
-          
+      }else {          
           print('Unexpected data type: ${data.runtimeType}');
         }
-    });
-  }
+    },
+      onError: (error) {
+        // Handle WebSocket errors
+        print('WebSocket error: $error');
+        _controller.addError(error);
+      },);
+}
 
   void send(message) {
     _channel.sink.add(message);

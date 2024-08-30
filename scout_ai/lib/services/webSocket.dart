@@ -12,8 +12,10 @@ class WebSocketService {
       if (data is Uint8List) {
         print('Received data of length: ${data.length}');
         _controller.add(data);
-      }else {          
-          print('Unexpected data type: ${data.runtimeType}');
+      }else if (data is String) {
+          print('Received text data: $data');
+        } else {
+          print('Received unknown data type');
         }
     },
       onError: (error) {
@@ -21,6 +23,7 @@ class WebSocketService {
         print('WebSocket error: $error');
         _controller.addError(error);
       },);
+      print('WebSocketService initialized and connected to $url');
 }
 
   void send(message) {

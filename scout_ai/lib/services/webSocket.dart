@@ -10,6 +10,7 @@ class WebSocketService {
       : _channel = WebSocketChannel.connect(Uri.parse(url)) {
     _channel.stream.listen((data) {
       if (data is Uint8List) {
+        print('Received data of length: ${data.length}');
         _controller.add(data);
       }else {          
           print('Unexpected data type: ${data.runtimeType}');

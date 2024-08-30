@@ -1,6 +1,5 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
-import 'package:flutter_mjpeg/flutter_mjpeg.dart';
 
 class VideoStream extends StatefulWidget {
   final Stream<Uint8List> stream;
@@ -12,7 +11,6 @@ class VideoStream extends StatefulWidget {
 
 class _VideoStreamState extends State<VideoStream> {
   Uint8List? _imageData;
-  bool _isLoading = true;
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +27,9 @@ class _VideoStreamState extends State<VideoStream> {
           }
           if(snapshot.hasData){
             _imageData = snapshot.data;
-            _isLoading = false;
+            print('Received image data of length: ${_imageData?.length}');
             return Center(
-              child: _isLoading
-                  ? CircularProgressIndicator()
-                  : Image.memory(_imageData!),
+              child: Image.memory(_imageData!),
         );
           }
           return Center(child: Text('No data'));

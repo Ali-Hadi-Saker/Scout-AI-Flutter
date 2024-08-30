@@ -28,8 +28,15 @@ class _VideoStreamState extends State<VideoStream> {
             return Center(child: Text('Error: ${snapshot.error}'));
           }
           if(snapshot.hasData){
-            
+            _imageData = snapshot.data;
+            _isLoading = false;
+            return Center(
+              child: _isLoading
+                  ? CircularProgressIndicator()
+                  : Image.memory(_imageData!),
+        );
           }
+          return Center(child: Text('No data'));
         });
   }
 }

@@ -1,9 +1,10 @@
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_mjpeg/flutter_mjpeg.dart';
 
 class VideoStream extends StatefulWidget {
-  final String streamUrl;
-  const VideoStream({super.key, required this.streamUrl});
+  final Stream<Uint8List> stream;
+  const VideoStream({super.key, required this.stream});
 
   @override
   State<VideoStream> createState() => _VideoStreamState();

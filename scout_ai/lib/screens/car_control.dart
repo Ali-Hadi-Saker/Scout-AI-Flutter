@@ -134,6 +134,18 @@ class _CarControlScreenState extends State<CarControlScreen> {
                         ),
                       ],
                     ),
+                     ElevatedButton(
+                          onPressed: () => _sendCommand('STOP'),
+                          child: Icon(Icons.stop),
+                          style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 30, vertical: 20),
+                            backgroundColor: Color.fromARGB(255, 226, 60, 60),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ),
                   ],
                 ),
               ),

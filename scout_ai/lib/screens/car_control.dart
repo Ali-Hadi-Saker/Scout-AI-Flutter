@@ -24,6 +24,7 @@ class _CarControlScreenState extends State<CarControlScreen> {
     _webSocketService.dispose();
     super.dispose();
   }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -47,14 +48,28 @@ class _CarControlScreenState extends State<CarControlScreen> {
                 child: VideoStream(stream: _webSocketService.videoStream)),
             Expanded(
                 child: Center(
-              child: Joystick(
-                mode: JoystickMode.all,
-                listener: (details) {
-                  String command = 'x: ${details.x}, y: ${details.y}';
-                  _webSocketService.send(command);
-                  print('Joystick direction: ${command}');
-                },
-              ),
+              child: 
+              // Joystick(
+              //   mode: JoystickMode.all,
+              //   listener: (details) {
+              //     String command = 'x: ${details.x}, y: ${details.y}';
+              //     _webSocketService.send(command);
+              //     print('Joystick direction: ${command}');
+              //   },
+              // ),
+              Row(
+                children: [
+                  ElevatedButton(
+                  onPressed: () => _sendCommand('UP'),
+                  child: Text('Forward'),
+                ),
+                SizedBox(width: 10),
+                ElevatedButton(
+                  onPressed: () => _sendCommand('DOWN'),
+                  child: Text('Backward'),
+                ),
+                ],
+              )
             ))
           ],
         ),

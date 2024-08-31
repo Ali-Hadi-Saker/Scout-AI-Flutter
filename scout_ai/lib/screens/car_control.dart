@@ -25,7 +25,9 @@ class _CarControlScreenState extends State<CarControlScreen> {
     super.dispose();
   }
   
-
+   void _sendCommand(String command) {
+    _webSocketService.send(command);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

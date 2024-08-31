@@ -8,23 +8,26 @@ class WebSocketService {
 
   WebSocketService(String url)
       : _channel = WebSocketChannel.connect(Uri.parse(url)) {
-    _channel.stream.listen((data) {
-      if (data is Uint8List) {
-        print('Received data of length: ${data.length}');
-        _controller.add(data);
-      }else if (data is String) {
+    _channel.sink.add('FLUTTER_CONNECTED');
+    _channel.stream.listen(
+      (data) {
+        if (data is Uint8List) {
+          print('Received data of length: ${data.length}');
+          _controller.add(data);
+        } else if (data is String) {
           print('Received text data: $data');
         } else {
           print('Received unknown data type');
         }
-    },
+      },
       onError: (error) {
         // Handle WebSocket errors
         print('WebSocket error: $error');
         _controller.addError(error);
-      },);
-      print('WebSocketService initialized and connected to $url');
-}
+      },
+    );
+    print('WebSocketService initialized and connected to $url');
+  }
 
   void send(message) {
     _channel.sink.add(message);

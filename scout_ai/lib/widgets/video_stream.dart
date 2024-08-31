@@ -29,7 +29,8 @@ class _VideoStreamState extends State<VideoStream> {
             _imageData = snapshot.data;
             print('Received image data of length: ${_imageData?.length}');
             return Center(
-              child: Image.memory(_imageData!),
+              child: Image.memory(_imageData!,
+              gaplessPlayback: true,),
         );
           }
           return Center(child: Text('No data'));

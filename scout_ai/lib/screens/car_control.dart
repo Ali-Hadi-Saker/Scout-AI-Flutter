@@ -57,19 +57,39 @@ class _CarControlScreenState extends State<CarControlScreen> {
               //     print('Joystick direction: ${command}');
               //   },
               // ),
-              Row(
+              Column(
                 children: [
-                  ElevatedButton(
-                  onPressed: () => _sendCommand('UP'),
-                  child: Text('Forward'),
+                  Row(
+                    children: [
+                      ElevatedButton(
+                      onPressed: () => _sendCommand('UP'),
+                      child: Text('Forward'),
+                    ),
+                    SizedBox(width: 10),
+                    ElevatedButton(
+                      onPressed: () => _sendCommand('DOWN'),
+                      child: Text('Backward'),
+                    ),
+                    ],
+                    
+                  ),
+                  SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: () => _sendCommand('LEFT'),
+                  child: Text('Left'),
                 ),
                 SizedBox(width: 10),
                 ElevatedButton(
-                  onPressed: () => _sendCommand('DOWN'),
-                  child: Text('Backward'),
+                  onPressed: () => _sendCommand('RIGHT'),
+                  child: Text('Right'),
                 ),
+              ],)
                 ],
-              )
+              ),
+              
             ))
           ],
         ),

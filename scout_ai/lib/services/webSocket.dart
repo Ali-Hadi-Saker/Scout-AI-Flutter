@@ -27,7 +27,7 @@ class WebSocketService {
     print('WebSocketService initialized and connected to $url');
   }
 
-  void send(message) {
+  void send(String message) {
     _channel.sink.add(message);
   }
 

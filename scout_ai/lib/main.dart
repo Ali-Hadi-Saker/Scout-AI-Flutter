@@ -13,15 +13,32 @@ import 'package:scout_ai/screens/upload_item.dart';
 import 'package:scout_ai/screens/user_infos.dart';
 import 'package:scout_ai/widgets/bottom_navigation.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(create: (_)=> UserData(), child: const MyApp(),));
+  runApp(ChangeNotifierProvider(
+    create: (_) => UserData(),
+    child: const MyApp(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
+  late SharedPreferences prefs;
+  bool isLogged = false;
+
+  void checkLogged() async {
+    prefs = await SharedPreferences.getInstance();
+    isLogged = prefs.getBool('isLogged')!;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,22 +49,18 @@ class MyApp extends StatelessWidget {
       ),
       home: LoginScreen(),
       routes: {
-        "register": (context)=> const RegisterScreen(),
-        "login": (context)=> const LoginScreen(),
-        "home": (context)=> const HomeScreen(),
-        "upload-item": (context)=> const UploadItemScreen(),
-        "car-control": (context)=> const CarControlScreen(),
-        "search-result": (context)=> const SearchResultScreen(),
+        "register": (context) => const RegisterScreen(),
+        "login": (context) => const LoginScreen(),
+        "home": (context) => const HomeScreen(),
+        "upload-item": (context) => const UploadItemScreen(),
+        "car-control": (context) => const CarControlScreen(),
+        "search-result": (context) => const SearchResultScreen(),
         "test": (context) => TestScreen(),
         "setting": (context) => SettingScreen(),
-        "user-infos":(context) => UserInfoScreen(),
-        "security":(context) => SecurityScreen(),
-        "history":(context) => HistoryScreen(),
-
-
-
+        "user-infos": (context) => UserInfoScreen(),
+        "security": (context) => SecurityScreen(),
+        "history": (context) => HistoryScreen(),
       },
     );
   }
 }
-

@@ -92,7 +92,14 @@ class _SettingScreenState extends State<SettingScreen> {
               onPressed: ()=> Navigator.pushNamed(context, "history"),
               suffexIcon: const Icon(Icons.arrow_forward_ios_sharp),
               preffixIcon: const Icon(Icons.history),
-              heigth: 80)
+              heigth: 80),
+              Spacer(),
+              CustomizedButton(
+                text: "Logout", 
+                onPressed: (){},
+                heigth: 80,
+                suffexIcon: const Icon(Icons.arrow_forward_ios_sharp),
+                preffixIcon: Icon(Icons.logout),)
 
           ],
         ),

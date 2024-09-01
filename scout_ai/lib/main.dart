@@ -55,7 +55,7 @@ class _MyAppState extends State<MyApp> {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: isLogged ? const HomeScreen() : const LoginScreen(),
+      home: isLogged ? const BottomNav() : const LoginScreen(),
       routes: {
         "register": (context) => const RegisterScreen(),
         "login": (context) => const LoginScreen(),

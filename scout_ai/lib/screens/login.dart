@@ -37,7 +37,6 @@ class _LoginScreenState extends State<LoginScreen> {
         await prefs.setString('userToken', userToken);
         await prefs.setBool("isLogged", true);
 
-
         // Update the provider with the user's name
         final userDataProvider = context.read<UserData>();
         userDataProvider.setName(userDataJson);
@@ -45,6 +44,9 @@ class _LoginScreenState extends State<LoginScreen> {
         // Print the user's name in the console
         final userName = userDataProvider.name;
         print('User name: $userName');
+
+        // bool isLogged = prefs.getBool('isLogged')!;
+        // print(isLogged);
 
         // String data = prefs.getString('userData')!;
         // String token = prefs.getString('userToken')!;

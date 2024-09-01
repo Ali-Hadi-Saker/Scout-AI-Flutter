@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
   void checkLogged() async {
     prefs = await SharedPreferences.getInstance();
     setState(() {
-      isLogged = prefs.getBool('isLogged')!;
+      isLogged = prefs.getBool('isLogged') ?? false;
     });
   }
 
@@ -55,7 +55,7 @@ class _MyAppState extends State<MyApp> {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: LoginScreen(),
+      home: isLogged ? const HomeScreen() : const LoginScreen(),
       routes: {
         "register": (context) => const RegisterScreen(),
         "login": (context) => const LoginScreen(),
@@ -64,10 +64,10 @@ class _MyAppState extends State<MyApp> {
         "car-control": (context) => const CarControlScreen(),
         "search-result": (context) => const SearchResultScreen(),
         "test": (context) => TestScreen(),
-        "setting": (context) => SettingScreen(),
-        "user-infos": (context) => UserInfoScreen(),
-        "security": (context) => SecurityScreen(),
-        "history": (context) => HistoryScreen(),
+        "setting": (context) => const SettingScreen(),
+        "user-infos": (context) => const UserInfoScreen(),
+        "security": (context) => const SecurityScreen(),
+        "history": (context) => const HistoryScreen(),
       },
     );
   }

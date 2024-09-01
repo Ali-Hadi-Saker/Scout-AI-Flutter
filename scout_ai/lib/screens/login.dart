@@ -29,22 +29,29 @@ class _LoginScreenState extends State<LoginScreen> {
           body: jsonEncode({"email": email.text, "password": password.text}));
       if (response.statusCode == 200) {
         var responseData = jsonDecode(response.body);
-        print(responseData);
         String userDataJson = jsonEncode(responseData['user']);
         String userToken = jsonEncode(responseData['token']);
 
         SharedPreferences prefs = await SharedPreferences.getInstance();
         await prefs.setString('userData', userDataJson);
         await prefs.setString('userToken', userToken);
+        await prefs.setBool("isLogged", true);
 
-        Provider.of<UserData>(context, listen: false).setName(userDataJson);
-        String data = prefs.getString('userData')!;
-        String token = prefs.getString('userToken')!;
 
-        print('user data: ${data}');
-        print('user token: ${token}');
+        // Update the provider with the user's name
+        final userDataProvider = context.read<UserData>();
+        userDataProvider.setName(userDataJson);
 
-        Navigator.pushNamed(context, "home");
+        // Print the user's name in the console
+        final userName = userDataProvider.name;
+        print('User name: $userName');
+
+        // String data = prefs.getString('userData')!;
+        // String token = prefs.getString('userToken')!;
+        // print('user data: ${data}');
+        // print('user token: ${token}');
+
+        // Navigator.pushNamed(context, "home");
       } else {
         print("faild to login");
         print('Status code: ${response.statusCode}');

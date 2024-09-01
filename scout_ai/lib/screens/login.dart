@@ -18,16 +18,15 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
-
   void login() async {
     try {
-      var url = Uri.parse('http://192.168.1.21:8080/users/login');
+      var url = Uri.parse('http://10.0.2.2:8080/users/login');
       var response = await http.post(url,
           headers: {"content-type": "application/json"},
           body: jsonEncode({"email": email.text, "password": password.text}));
       if (response.statusCode == 200) {
         var responseData = jsonDecode(response.body);
-
+        print(responseData);
         String userDataJson = jsonEncode(responseData['user']);
         String userToken = jsonEncode(responseData['token']);
 
@@ -42,7 +41,6 @@ class _LoginScreenState extends State<LoginScreen> {
         print('user token: ${token}');
 
         Navigator.pushNamed(context, "home");
-
       } else {
         print("faild to login");
         print('Status code: ${response.statusCode}');
@@ -130,17 +128,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ],
                         ),
-                        
                       ],
                     ),
-                  
                   ),
                 ),
               ],
             ),
-            
           ),
-          
         ],
       ),
     );

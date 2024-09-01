@@ -7,8 +7,16 @@ class CustomizedButton extends StatelessWidget {
   final double? heigth;
   final Icon? preffixIcon;
   final Icon? suffexIcon;
+  final Color color;
   const CustomizedButton(
-      {super.key, required this.text, required this.onPressed, this.width, this.suffexIcon, this.heigth, this.preffixIcon});
+      {super.key,
+      required this.text,
+      required this.onPressed,
+      this.width,
+      this.suffexIcon,
+      this.heigth,
+      this.preffixIcon,
+      required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -17,32 +25,36 @@ class CustomizedButton extends StatelessWidget {
       height: heigth,
       child: MaterialButton(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          color: Colors.blue,
+          color: color,
           onPressed: onPressed,
           child: Padding(
             padding: const EdgeInsets.only(bottom: 15, top: 15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                if(preffixIcon != null) ...[
+                if (preffixIcon != null) ...[
                   Icon(
                     preffixIcon!.icon,
                     size: 24,
                     color: Colors.white,
                   ),
-                  SizedBox(width: 24,)
+                  SizedBox(
+                    width: 24,
+                  )
                 ],
                 Text(
                   text,
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
-                if(suffexIcon != null) ...[
-                  SizedBox(width: 24,),
+                if (suffexIcon != null) ...[
+                  SizedBox(
+                    width: 24,
+                  ),
                   Icon(
                     suffexIcon!.icon,
                     size: 24,
-                    color: Colors.white,)
-                  
+                    color: Colors.white,
+                  )
                 ]
               ],
             ),

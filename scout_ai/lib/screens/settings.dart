@@ -111,7 +111,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 heigth: 80),
             Spacer(),
             CustomizedButton(
-              color: AppColors.primaryButtonColor,
+              color: AppColors.logoutButtonColor,
               text: "Logout",
               onPressed: logout,
               heigth: 80,

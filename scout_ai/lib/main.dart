@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scout_ai/provider/user_data.dart';
 import 'package:scout_ai/screens/car_control.dart';
 import 'package:scout_ai/screens/history.dart';
 import 'package:scout_ai/screens/home.dart';
@@ -11,9 +12,10 @@ import 'package:scout_ai/screens/test.dart';
 import 'package:scout_ai/screens/upload_item.dart';
 import 'package:scout_ai/screens/user_infos.dart';
 import 'package:scout_ai/widgets/bottom_navigation.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(create: (_)=> UserData(), child: const MyApp(),));
 }
 
 class MyApp extends StatelessWidget {

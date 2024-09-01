@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scout_ai/utils/constant.dart';
 import 'package:scout_ai/widgets/button.dart';
 
 class UploadItemScreen extends StatefulWidget {
@@ -39,6 +40,7 @@ class _UploadItemScreenState extends State<UploadItemScreen> {
             ),
             SizedBox(height: 15,),
             CustomizedButton(
+              color: AppColors.primaryButtonColor,
               text: "Start Search", 
               onPressed: ()=>{})
           ],

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:scout_ai/utils/constant.dart';
 import 'package:scout_ai/widgets/button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -82,6 +83,7 @@ class _SettingScreenState extends State<SettingScreen> {
               height: 120,
             ),
             CustomizedButton(
+                color: AppColors.primaryButtonColor,
                 text: "User Infos",
                 onPressed: () => Navigator.pushNamed(context, "user-infos"),
                 suffexIcon: const Icon(Icons.arrow_forward_ios_sharp),
@@ -91,6 +93,7 @@ class _SettingScreenState extends State<SettingScreen> {
               height: 20,
             ),
             CustomizedButton(
+                color: AppColors.primaryButtonColor,
                 text: "Password and Security",
                 onPressed: () => Navigator.pushNamed(context, "security"),
                 suffexIcon: const Icon(Icons.arrow_forward_ios_sharp),
@@ -100,6 +103,7 @@ class _SettingScreenState extends State<SettingScreen> {
               height: 20,
             ),
             CustomizedButton(
+                color: AppColors.primaryButtonColor,
                 text: "History",
                 onPressed: () => Navigator.pushNamed(context, "history"),
                 suffexIcon: const Icon(Icons.arrow_forward_ios_sharp),
@@ -107,6 +111,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 heigth: 80),
             Spacer(),
             CustomizedButton(
+              color: AppColors.primaryButtonColor,
               text: "Logout",
               onPressed: logout,
               heigth: 80,

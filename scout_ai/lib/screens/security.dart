@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:scout_ai/utils/constant.dart';
 import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/edit_input_field.dart';
 import 'package:scout_ai/widgets/screen_icon.dart';
@@ -73,11 +74,17 @@ class _SecurityScreenState extends State<SecurityScreen> {
               children: [
                 Expanded(child: Padding(
                   padding: const EdgeInsets.only(right: 20),
-                  child: CustomizedButton(text: 'Save', onPressed: ()=> print('Change saved')),
+                  child: CustomizedButton(
+                    color: AppColors.primaryButtonColor,
+                    text: 'Save', 
+                    onPressed: ()=> print('Change saved')),
                 )),
                 Expanded(child: Padding(
                   padding: const EdgeInsets.only(left: 20),
-                  child: CustomizedButton(text: 'Save', onPressed: ()=> print('Discard Changes')),
+                  child: CustomizedButton(
+                    color: AppColors.primaryButtonColor,
+                    text: 'Save', 
+                    onPressed: ()=> print('Discard Changes')),
                 ))
 
               ],

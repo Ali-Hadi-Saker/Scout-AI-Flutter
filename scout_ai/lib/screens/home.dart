@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scout_ai/utils/constant.dart';
 import 'package:scout_ai/widgets/button.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -46,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),),
                     const SizedBox(height: 70,),
                 CustomizedButton(
+                  color: AppColors.primaryButtonColor,
                   heigth: 80,
                   text: "Search for an Item", 
                   onPressed: ()=>{
@@ -58,6 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 15,
                 ),
                 CustomizedButton(
+                  color: AppColors.primaryButtonColor,
                   heigth: 80,
                   text: "Drive yor Car",
                   onPressed: ()=>{

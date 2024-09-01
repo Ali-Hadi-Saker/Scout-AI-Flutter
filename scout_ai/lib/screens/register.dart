@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scout_ai/utils/constant.dart';
 import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/input_field.dart';
 import 'package:http/http.dart' as http;
@@ -87,7 +88,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     obscureText: true,
                   ),
                   CustomizedButton(
-                      text: "Sign Up", onPressed: () => {createUser()}),
+                      color: AppColors.primaryButtonColor,
+                      text: "Sign Up", 
+                      onPressed: () => createUser()),
                   Center(
                     child: Row(
                       children: [

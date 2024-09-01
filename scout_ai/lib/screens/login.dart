@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:scout_ai/provider/user_data.dart';
+import 'package:scout_ai/utils/constant.dart';
 import 'package:scout_ai/widgets/bottom_navigation.dart';
 import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/input_field.dart';
@@ -112,6 +113,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             icon: Icons.lock,
                             obscureText: true),
                         CustomizedButton(
+                            color: AppColors.primaryButtonColor,
                             text: "Login",
                             onPressed: () => {
                                   // Navigator.pushNamed(context, "home")

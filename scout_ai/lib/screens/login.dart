@@ -1,12 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
+import 'package:scout_ai/provider/user_data.dart';
 import 'package:scout_ai/widgets/bottom_navigation.dart';
 import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/input_field.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../provider/user_data.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -34,6 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
         await prefs.setString('userData', userDataJson);
         await prefs.setString('userToken', userToken);
 
+        Provider.of<UserData>(context, listen: false).setName(userDataJson);
         String data = prefs.getString('userData')!;
         String token = prefs.getString('userToken')!;
 

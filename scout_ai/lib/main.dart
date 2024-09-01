@@ -36,7 +36,9 @@ class _MyAppState extends State<MyApp> {
 
   void checkLogged() async {
     prefs = await SharedPreferences.getInstance();
-    isLogged = prefs.getBool('isLogged')!;
+    setState(() {
+      isLogged = prefs.getBool('isLogged')!;      
+    });
   }
 
   @override

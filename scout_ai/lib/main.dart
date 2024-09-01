@@ -34,10 +34,16 @@ class _MyAppState extends State<MyApp> {
   late SharedPreferences prefs;
   bool isLogged = false;
 
+  @override
+  void initState() {
+    super.initState();
+    checkLogged();
+  }
+
   void checkLogged() async {
     prefs = await SharedPreferences.getInstance();
     setState(() {
-      isLogged = prefs.getBool('isLogged')!;      
+      isLogged = prefs.getBool('isLogged')!;
     });
   }
 

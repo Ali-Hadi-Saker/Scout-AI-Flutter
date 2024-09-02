@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: const BottomNav(),
+      bottomNavigationBar: Container(height: 50, color: Colors.blue),
     );
   }
 }

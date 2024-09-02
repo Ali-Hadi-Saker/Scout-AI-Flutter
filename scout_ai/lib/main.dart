@@ -68,6 +68,8 @@ class _MyAppState extends State<MyApp> {
         "user-infos": (context) => const UserInfoScreen(),
         "security": (context) => const SecurityScreen(),
         "history": (context) => const HistoryScreen(),
+        "bottom-nav": (context) => const BottomNav(),
+
       },
     );
   }

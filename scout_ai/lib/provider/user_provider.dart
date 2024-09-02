@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:scout_ai/classes/user.dart';
 
 class UserProvider extends ChangeNotifier {
-  String? _name;
+  User? _user;
 
-  String? get name => _name;
+  User? get user => _user;
 
-  void setName(String newName) {
-    _name = newName;
+  void setUser(User newUser) {
+    _user = newUser;
+    notifyListeners();
+  }
+
+  void clearUser() {
+    _user = null;
     notifyListeners();
   }
 }

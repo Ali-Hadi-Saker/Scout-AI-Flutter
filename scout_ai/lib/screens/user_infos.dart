@@ -31,6 +31,12 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
     }
   }
 
+  void save() {
+    final newName = fnameController.text;
+    final userProvider = context.read<UserProvider>().user;
+    userProvider.setUser(newName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

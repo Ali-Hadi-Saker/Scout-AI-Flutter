@@ -14,7 +14,6 @@ class UserInfoScreen extends StatefulWidget {
 }
 
 class _UserInfoScreenState extends State<UserInfoScreen> {
-  String? name;
   String? email;
   late TextEditingController fnameController;
   late TextEditingController emailController;
@@ -23,13 +22,12 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
     super.initState();
 
     fnameController = TextEditingController();
-    emailController = TextEditingController();
 
     final userInfos = context.read<UserProvider>().user;
     print(userInfos);
     if (userInfos != null) {
       fnameController.text = userInfos.fname;
-      emailController.text = userInfos.email;
+      email = userInfos.email;
     }
   }
 
@@ -55,7 +53,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
             const SizedBox(height: 20),
             editInputField(
               prefixIcon: const Icon(Icons.email),
-              controller: emailController,
+              hintText: email,
             ),
             const Spacer(),
             Row(

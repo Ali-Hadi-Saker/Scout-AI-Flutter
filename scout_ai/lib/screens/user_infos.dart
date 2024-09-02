@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:scout_ai/provider/user_provider.dart';
 import 'package:scout_ai/utils/constant.dart';
 import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/edit_input_field.dart';
@@ -17,25 +19,20 @@ class UserInfoScreen extends StatefulWidget {
 class _UserInfoScreenState extends State<UserInfoScreen> {
   String? name;
   String? email;
-  TextEditingController fnameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
+  late TextEditingController fnameController;
+  late TextEditingController emailController;
   @override
   void initState() {
     super.initState();
-    loadUserData();
-  }
 
-  void loadUserData() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String userDataJson = prefs.getString('userData')!;
+    fnameController = TextEditingController();
+    emailController = TextEditingController();
 
-    var userData = jsonDecode(userDataJson);
-    setState(() {
-      name = userData['fname'];
-      email = userData['email'];
-      fnameController.text = name!;
-      emailController.text = email!;
-    });
+    final userInfos = context.read<UserProvider>().user;
+    if (userInfos != null) {
+      fnameController.text = userInfos.fname;
+      emailController.text = userInfos.email;
+    }
   }
 
   @override
@@ -54,15 +51,16 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
             ScreenIcon(screenIon: Icon(Icons.edit)),
             const SizedBox(height: 100),
             editInputField(
-                prefixIcon: Icon(Icons.person), 
-                hintText: "Username",
-                controller: fnameController,),
+              prefixIcon: Icon(Icons.person),
+              hintText: "Username",
+              controller: fnameController,
+            ),
             const SizedBox(height: 20),
             editInputField(
-                prefixIcon: Icon(Icons.email), 
-                hintText: "Email",
-                controller: emailController,
-                ),
+              prefixIcon: Icon(Icons.email),
+              hintText: "Email",
+              controller: emailController,
+            ),
             const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

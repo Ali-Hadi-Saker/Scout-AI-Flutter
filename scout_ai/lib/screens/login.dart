@@ -56,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
         // print('user data: ${data}');
         // print('user token: ${token}');
 
-        Navigator.pushNamed(context, "home");
+        Navigator.pushReplacementNamed(context, "bottom-nav");
       } else {
         print("faild to login");
         print('Status code: ${response.statusCode}');

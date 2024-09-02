@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class UserData extends ChangeNotifier {
+class UserProvider extends ChangeNotifier {
   String? _name;
 
   String? get name => _name;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scout_ai/provider/user_data.dart';
+import 'package:scout_ai/provider/user_provider.dart';
 import 'package:scout_ai/screens/car_control.dart';
 import 'package:scout_ai/screens/history.dart';
 import 'package:scout_ai/screens/home.dart';
@@ -17,7 +17,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
-    create: (_) => UserData(),
+    create: (_) => UserProvider(),
     child: const MyApp(),
   ));
 }

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-import 'package:scout_ai/provider/user_data.dart';
+import 'package:scout_ai/provider/user_provider.dart';
 import 'package:scout_ai/utils/constant.dart';
 import 'package:scout_ai/widgets/bottom_navigation.dart';
 import 'package:scout_ai/widgets/button.dart';
@@ -10,7 +10,7 @@ import 'package:scout_ai/widgets/input_field.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../provider/user_data.dart';
+import '../provider/user_provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -30,6 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
           body: jsonEncode({"email": email.text, "password": password.text}));
       if (response.statusCode == 200) {
         var responseData = jsonDecode(response.body);
+        print(responseData.runtimeType);
         String userDataJson = jsonEncode(responseData['user']);
         String userToken = jsonEncode(responseData['token']);
 
@@ -39,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
         await prefs.setBool("isLogged", true);
 
         // Update the provider with the user's name
-        final userDataProvider = context.read<UserData>();
+        final userDataProvider = context.read<UserProvider>();
         userDataProvider.setName(userDataJson);
 
         // Print the user's name in the console

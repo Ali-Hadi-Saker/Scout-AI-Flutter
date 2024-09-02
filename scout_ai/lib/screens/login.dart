@@ -1,17 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:scout_ai/classes/user.dart';
 import 'package:scout_ai/provider/user_provider.dart';
 import 'package:scout_ai/utils/constant.dart';
-import 'package:scout_ai/widgets/bottom_navigation.dart';
 import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/input_field.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../provider/user_provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -38,21 +34,19 @@ class _LoginScreenState extends State<LoginScreen> {
         String userToken = jsonEncode(responseData['token']);
 
         User user = User(
-            fname: userDataJson.fname,
-            email: userDataJson.email,
-            password: userDataJson.password);
+            fname: userDataJson['fname'],
+            email: userDataJson['email'],
+            password: userDataJson['password']);
 
         SharedPreferences prefs = await SharedPreferences.getInstance();
         await prefs.setString('userToken', userToken);
         await prefs.setBool("isLogged", true);
 
         final userDataProvider = context.read<UserProvider>();
-        // Update the provider with the user's name
-        userDataProvider.setUser(responseData['user']);
+        userDataProvider.setUser(user);
 
-        // Print the user's name in the console
-        final user = userDataProvider.user;
-        print('User name: $user');
+        final userInfos = userDataProvider.user;
+        print('User name: $userInfos');
 
         // bool isLogged = prefs.getBool('isLogged')!;
         // print(isLogged);

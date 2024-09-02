@@ -26,6 +26,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
     emailController = TextEditingController();
 
     final userInfos = context.read<UserProvider>().user;
+    print(userInfos);
     if (userInfos != null) {
       fnameController.text = userInfos.fname;
       emailController.text = userInfos.email;

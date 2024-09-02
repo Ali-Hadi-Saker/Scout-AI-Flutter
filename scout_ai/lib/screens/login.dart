@@ -46,7 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
         userDataProvider.setUser(user);
 
         final userInfos = userDataProvider.user;
-        print('User name: $userInfos');
+        print(userInfos?.fname);
 
         // bool isLogged = prefs.getBool('isLogged')!;
         // print(isLogged);

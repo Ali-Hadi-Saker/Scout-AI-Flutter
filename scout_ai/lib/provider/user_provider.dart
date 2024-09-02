@@ -6,7 +6,11 @@ class UserProvider extends ChangeNotifier {
 
   User? get user => _user;
 
-  void setUser(String newName) {
+  void setUser(User newUser) {
+    _user = newUser;
+    notifyListeners();
+  }
+  void setName(String newName) {
     _user?.fname = newName;
     notifyListeners();
   }

@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:scout_ai/provider/user_provider.dart';
@@ -7,7 +5,6 @@ import 'package:scout_ai/utils/constant.dart';
 import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/edit_input_field.dart';
 import 'package:scout_ai/widgets/screen_icon.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class UserInfoScreen extends StatefulWidget {
   const UserInfoScreen({super.key});
@@ -48,17 +45,15 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
         padding: const EdgeInsets.only(top: 8, bottom: 8, left: 18, right: 18),
         child: Column(
           children: [
-            ScreenIcon(screenIon: Icon(Icons.edit)),
+            const ScreenIcon(screenIon: Icon(Icons.edit)),
             const SizedBox(height: 100),
             editInputField(
-              prefixIcon: Icon(Icons.person),
-              hintText: "Username",
+              prefixIcon: const Icon(Icons.person),
               controller: fnameController,
             ),
             const SizedBox(height: 20),
             editInputField(
-              prefixIcon: Icon(Icons.email),
-              hintText: "Email",
+              prefixIcon: const Icon(Icons.email),
               controller: emailController,
             ),
             const Spacer(),

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
+import 'package:scout_ai/classes/user.dart';
 import 'package:scout_ai/provider/user_provider.dart';
 import 'package:scout_ai/utils/constant.dart';
 import 'package:scout_ai/widgets/bottom_navigation.dart';
@@ -22,6 +23,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+
   void login() async {
     try {
       var url = Uri.parse('http://10.0.2.2:8080/users/login');
@@ -31,21 +33,26 @@ class _LoginScreenState extends State<LoginScreen> {
       if (response.statusCode == 200) {
         var responseData = jsonDecode(response.body);
         print(responseData.runtimeType);
-        String userDataJson = jsonEncode(responseData['user']);
+
+        var userDataJson = responseData['user'];
         String userToken = jsonEncode(responseData['token']);
 
+        User user = User(
+            fname: userDataJson.fname,
+            email: userDataJson.email,
+            password: userDataJson.password);
+
         SharedPreferences prefs = await SharedPreferences.getInstance();
-        await prefs.setString('userData', userDataJson);
         await prefs.setString('userToken', userToken);
         await prefs.setBool("isLogged", true);
 
-        // Update the provider with the user's name
         final userDataProvider = context.read<UserProvider>();
-        userDataProvider.setName(userDataJson);
+        // Update the provider with the user's name
+        userDataProvider.setUser(responseData['user']);
 
         // Print the user's name in the console
-        final userName = userDataProvider.name;
-        print('User name: $userName');
+        final user = userDataProvider.user;
+        print('User name: $user');
 
         // bool isLogged = prefs.getBool('isLogged')!;
         // print(isLogged);

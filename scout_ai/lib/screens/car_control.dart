@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_joystick/flutter_joystick.dart';
 import 'package:scout_ai/services/websocket.dart';
 import 'package:scout_ai/widgets/video_stream.dart';
 

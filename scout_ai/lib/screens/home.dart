@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:scout_ai/utils/constant.dart';
-import 'package:scout_ai/widgets/bottom_navigation.dart';
 import 'package:scout_ai/widgets/button.dart';
 
 class HomeScreen extends StatefulWidget {

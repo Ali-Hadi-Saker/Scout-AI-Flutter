@@ -23,6 +23,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
   TextEditingController newPasswordController = TextEditingController();
   TextEditingController confirmNewPasswordController = TextEditingController();
 
+  @override
   void initState() {
     super.initState();
     loadUserData();
@@ -44,32 +45,33 @@ class _SecurityScreenState extends State<SecurityScreen> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
-            icon: Icon(Icons.arrow_back)),
-        title: Center(child: Text("Password and Security")),
+            icon: const Icon(Icons.arrow_back)),
+        title: const Text("Password and Security"),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
         child: Column(
           children: [
-            ScreenIcon(screenIon: Icon(Icons.shield_rounded)),
-            SizedBox(
+            const ScreenIcon(screenIon: Icon(Icons.shield_rounded)),
+            const SizedBox(
               height: 100,
             ),
             editInputField(
               hintText: currentPassword!,
-              prefixIcon: Icon(Icons.shield_rounded),
+              prefixIcon: const Icon(Icons.shield_rounded),
             ),
             editInputField(
               hintText: "New Password", 
-              prefixIcon: Icon(Icons.shield_rounded),
+              prefixIcon: const Icon(Icons.shield_rounded),
               controller: newPasswordController,
             ),
             editInputField(
               hintText: "Confirm New Password", 
-              prefixIcon: Icon(Icons.shield_rounded),
+              prefixIcon: const Icon(Icons.shield_rounded),
               controller: confirmNewPasswordController,
             ),
-            Spacer(),
+            const Spacer(),
             Row(
               children: [
                 Expanded(child: Padding(

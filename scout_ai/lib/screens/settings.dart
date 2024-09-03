@@ -48,7 +48,7 @@ class _SettingScreenState extends State<SettingScreen> {
         title: const Center(child: Text("User Details")),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 8, bottom: 8, left: 18, right: 18),
+        padding: const EdgeInsets.all(8),
         child: Column(
           children: [
             Container(

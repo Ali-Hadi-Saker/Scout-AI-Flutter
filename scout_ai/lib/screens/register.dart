@@ -107,19 +107,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         color: AppColors.primaryButtonColor,
                         text: "Sign Up",
                         onPressed: () => createUser()),
+                        const SizedBox(
+                            height: 15,
+                          ),
                     Center(
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const Text(
-                            "Already have an account?",
+                            "Already have an account? ",
                             style: TextStyle(color: Colors.white),
                           ),
                           InkWell(
                             onTap: () => Navigator.pushNamed(context, "login"),
-                            child: Text("Login",
+                            child: const Text("Login",
                                 style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold)),
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15)),
                           )
                         ],
                       ),

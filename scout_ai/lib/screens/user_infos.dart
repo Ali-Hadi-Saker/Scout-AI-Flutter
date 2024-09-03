@@ -41,6 +41,14 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
     FocusScope.of(context).unfocus();
   }
 
+  void discard() {
+    final userInfos = context.read<UserProvider>().user;
+    if (userInfos != null) {
+      fnameController.text = userInfos.fname;
+    }
+    FocusScope.of(context).unfocus();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,7 +96,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                       color: AppColors.primaryButtonColor,
                       text: "Discard",
                       onPressed: () {
-                        print("Discard button pressed");
+                        discard();
                       },
                     ),
                   ),

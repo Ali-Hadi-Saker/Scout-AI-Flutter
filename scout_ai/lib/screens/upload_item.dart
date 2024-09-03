@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:scout_ai/utils/constant.dart';
 import 'package:scout_ai/widgets/button.dart';
 
@@ -34,14 +33,16 @@ class _UploadItemScreenState extends State<UploadItemScreen> {
                   color: Colors.grey[300],
                   border: Border.all(color: Colors.grey, width: 3)
                 ),
-                child: Center(
-                  child: Icon(Icons.add_a_photo, size: 28,),
+                child: const Center(
+                  child: Icon(
+                    Icons.add_a_photo, 
+                    size: 28,),
                   
                 ),
                 
               ),
             ),
-            SizedBox(height: 15,),
+            const SizedBox(height: 15,),
             CustomizedButton(
               color: AppColors.primaryButtonColor,
               text: "Start Search", 

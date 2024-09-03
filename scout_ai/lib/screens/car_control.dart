@@ -34,13 +34,14 @@ class _CarControlScreenState extends State<CarControlScreen> {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
         ),
-        title: Center(child: Text("Car Control")),
+        title: const Text("Car Control"),
+        centerTitle: true,
         actions: [
           IconButton(
             onPressed: () => Navigator.pushNamed(context, "search-result"),
-            icon: Icon(Icons.arrow_forward),
+            icon: const Icon(Icons.arrow_forward),
           ),
         ],
         
@@ -61,7 +62,7 @@ class _CarControlScreenState extends State<CarControlScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Expanded(
               child: Center(
                 child: Column(
@@ -72,7 +73,7 @@ class _CarControlScreenState extends State<CarControlScreen> {
                       children: [
                         ElevatedButton(
                           onPressed: () => _sendCommand('UP'),
-                          child: Icon(Icons.arrow_upward),
+                          child: const Icon(Icons.arrow_upward),
                           style: ElevatedButton.styleFrom(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 30, vertical: 20),

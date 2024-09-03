@@ -48,19 +48,9 @@ class _LoginScreenState extends State<LoginScreen> {
         final userInfos = userDataProvider.user;
         print(userInfos?.fname);
 
-        // bool isLogged = prefs.getBool('isLogged')!;
-        // print(isLogged);
-
-        // String data = prefs.getString('userData')!;
-        // String token = prefs.getString('userToken')!;
-        // print('user data: ${data}');
-        // print('user token: ${token}');
-
         Navigator.pushReplacementNamed(context, "bottom-nav");
       } else {
-        print("faild to login");
-        print('Status code: ${response.statusCode}');
-        print('Response body: ${response.body}');
+        print('faild to login \nResponse body: ${response.body}');
       }
     } catch (e) {
       print('error $e');

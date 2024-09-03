@@ -56,7 +56,8 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back)),
-        title: const Center(child: Text("User Infos")),
+        title: const Text("User Infos"),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 8, bottom: 8, left: 18, right: 18),

@@ -24,17 +24,20 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
     fnameController = TextEditingController();
 
     final userInfos = context.read<UserProvider>().user;
-    print(userInfos);
     if (userInfos != null) {
       fnameController.text = userInfos.fname;
+      print(userInfos.fname);
       email = userInfos.email;
+      print(userInfos.email);
+
     }
   }
 
   void save() {
     final newName = fnameController.text;
-    final userProvider = context.read<UserProvider>().user;
-    userProvider.setUser(newName);
+    final userProvider = context.read<UserProvider>();
+    userProvider.setName(newName);
+    print(userProvider.user?.fname);
   }
 
   @override
@@ -72,7 +75,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                       color: AppColors.primaryButtonColor,
                       text: "Save",
                       onPressed: () {
-                        print("Save button pressed");
+                        save();
                       },
                     ),
                   ),

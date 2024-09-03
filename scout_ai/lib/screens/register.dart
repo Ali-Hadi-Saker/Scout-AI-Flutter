@@ -21,13 +21,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
   void createUser() async {
     try {
       var url = Uri.parse('http://192.168.1.21:8080/users/register');
-      var response = await http.post(url,
-          headers: {"Content-type": "application/json"},
-          body: json.encode({
-            'fname': fname.text,
-            'email': email.text,
-            'password': password.text
-          })).timeout(const Duration(seconds: 15));
+      var response = await http
+          .post(url,
+              headers: {"Content-type": "application/json"},
+              body: json.encode({
+                'fname': fname.text,
+                'email': email.text,
+                'password': password.text
+              }))
+          .timeout(const Duration(seconds: 15));
 
       if (response.statusCode == 201) {
         print('User registered successfully!');
@@ -64,6 +66,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    const Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        "Create an Account ;)",
+                        style: TextStyle(
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                    ),
+                    const SizedBox(
+                            height: 60,
+                          ),
                     InputField(
                       hintText: "Full Name",
                       controller: fname,
@@ -90,7 +105,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     CustomizedButton(
                         color: AppColors.primaryButtonColor,
-                        text: "Sign Up", 
+                        text: "Sign Up",
                         onPressed: () => createUser()),
                     Center(
                       child: Row(
@@ -100,9 +115,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             style: TextStyle(color: Colors.white),
                           ),
                           InkWell(
-                            onTap: ()=> Navigator.pushNamed(context, "login") ,
-                            child: Text(
-                              "Login",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),)
+                            onTap: () => Navigator.pushNamed(context, "login"),
+                            child: Text("Login",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold)),
+                          )
                         ],
                       ),
                     )

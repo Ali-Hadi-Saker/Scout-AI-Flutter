@@ -14,8 +14,9 @@ class _HistoryScreenState extends State<HistoryScreen> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
-            icon: Icon(Icons.arrow_back)),
-        title: Center(child: Text("History")),
+            icon: const Icon(Icons.arrow_back)),
+        title: const Text("History"),
+        centerTitle: true,
       ),
     );
   }

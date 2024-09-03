@@ -29,7 +29,6 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
       print(userInfos.fname);
       email = userInfos.email;
       print(userInfos.email);
-
     }
   }
 
@@ -38,6 +37,8 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
     final userProvider = context.read<UserProvider>();
     userProvider.setName(newName);
     print(userProvider.user?.fname);
+
+    FocusScope.of(context).unfocus();
   }
 
   @override

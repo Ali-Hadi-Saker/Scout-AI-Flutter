@@ -45,7 +45,8 @@ class _SettingScreenState extends State<SettingScreen> {
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back)),
-        title: const Center(child: Text("User Details")),
+        title: const Text("User Details"),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8),

@@ -20,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const SizedBox(height: 180,),
             const SizedBox(
               height: 120,
               child: Image(image: AssetImage('assets/images/scout_ai_logo_only.png')),

@@ -78,15 +78,15 @@ class _SecurityScreenState extends State<SecurityScreen> {
                   padding: const EdgeInsets.only(right: 20),
                   child: CustomizedButton(
                     color: AppColors.primaryButtonColor,
-                    text: 'Save', 
-                    onPressed: ()=> print('Change saved')),
+                    text: 'Cancel', 
+                    onPressed: ()=> print('Change canceld')),
                 )),
                 Expanded(child: Padding(
                   padding: const EdgeInsets.only(left: 20),
                   child: CustomizedButton(
                     color: AppColors.primaryButtonColor,
                     text: 'Save', 
-                    onPressed: ()=> print('Discard Changes')),
+                    onPressed: ()=> print('Changes saved')),
                 ))
 
               ],

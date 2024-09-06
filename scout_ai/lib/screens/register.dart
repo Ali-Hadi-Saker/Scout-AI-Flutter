@@ -69,7 +69,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     const Align(
                       alignment: Alignment.topLeft,
                       child: Text(
-                        "Create an Account ;)",
+                        "Create an Account",
                         style: TextStyle(
                             fontSize: 28,
                             fontWeight: FontWeight.bold,

@@ -83,9 +83,9 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                     padding: const EdgeInsets.only(right: 20),
                     child: CustomizedButton(
                       color: AppColors.primaryButtonColor,
-                      text: "Save",
+                      text: "Cancel",
                       onPressed: () {
-                        save();
+                        discard();
                       },
                     ),
                   ),
@@ -95,9 +95,9 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                     padding: const EdgeInsets.only(left: 20),
                     child: CustomizedButton(
                       color: AppColors.primaryButtonColor,
-                      text: "Discard",
+                      text: "save",
                       onPressed: () {
-                        discard();
+                        save();
                       },
                     ),
                   ),

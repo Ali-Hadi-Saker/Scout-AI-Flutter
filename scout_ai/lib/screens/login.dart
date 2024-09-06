@@ -119,7 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const Text(
-                                "Don't have an account? ",
+                                "Don't have an account ",
                                 style: TextStyle(color: Colors.white),
                               ),
                               InkWell(

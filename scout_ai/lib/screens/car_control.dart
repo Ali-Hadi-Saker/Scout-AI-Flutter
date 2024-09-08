@@ -58,7 +58,7 @@ class _CarControlScreenState extends State<CarControlScreen> {
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
-                  child: VideoStream(stream: _webSocketService.videoStream),
+                  child: const VideoStream(url: "http://10.0.2.2:5000/video_feed",),
                 ),
               ),
             ),

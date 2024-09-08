@@ -73,79 +73,79 @@ class _CarControlScreenState extends State<CarControlScreen> {
                       children: [
                         ElevatedButton(
                           onPressed: () => _sendCommand('UP'),
-                          child: const Icon(Icons.arrow_upward,color: Colors.white,),
                           style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 30, vertical: 20),
                             backgroundColor: Colors.blue,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
+                          child: const Icon(Icons.arrow_upward,color: Colors.white,),
                         ),
                       ],
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ElevatedButton(
                           onPressed: () => _sendCommand('LEFT'),
-                          child: Icon(Icons.arrow_back,color: Colors.white),
                           style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 30, vertical: 20),
                             backgroundColor: Colors.blue,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
+                          child: const Icon(Icons.arrow_back,color: Colors.white),
                         ),
-                        SizedBox(width: 80),
+                        const SizedBox(width: 80),
                         ElevatedButton(
                           onPressed: () => _sendCommand('RIGHT'),
-                          child: Icon(Icons.arrow_forward,color: Colors.white),
                           style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 30, vertical: 20),
                             backgroundColor: Colors.blue,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
+                          child: const Icon(Icons.arrow_forward,color: Colors.white),
                         ),
                       ],
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ElevatedButton(
                           onPressed: () => _sendCommand('DOWN'),
-                          child: Icon(Icons.arrow_downward,color: Colors.white),
                           style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 30, vertical: 20),
                             backgroundColor: Colors.blue,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
+                          child: const Icon(Icons.arrow_downward,color: Colors.white),
                         ),
                       ],
                     ),
-                    SizedBox(height: 20,),
+                    const SizedBox(height: 20,),
                      ElevatedButton(
                           onPressed: () => _sendCommand('STOP'),
-                          child: Icon(Icons.stop,color: Colors.white),
                           style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 30, vertical: 20),
-                            backgroundColor: Color.fromARGB(255, 226, 60, 60),
+                            backgroundColor: const Color.fromARGB(255, 226, 60, 60),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
+                          child: const Icon(Icons.stop,color: Colors.white),
                         ),
                   ],
                 ),

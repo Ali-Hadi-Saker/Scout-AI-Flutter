@@ -101,7 +101,20 @@ class _CarControlScreenState extends State<CarControlScreen> {
                           ),
                           child: const Icon(Icons.arrow_back,color: Colors.white),
                         ),
-                        const SizedBox(width: 80),
+                        const SizedBox(width: 20),
+                        ElevatedButton(
+                          onPressed: () => _sendCommand('STOP'),
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 30, vertical: 20),
+                            backgroundColor: const Color.fromARGB(255, 226, 60, 60),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          child: const Icon(Icons.stop,color: Colors.white),
+                        ),
+                        const SizedBox(width: 20),
                         ElevatedButton(
                           onPressed: () => _sendCommand('RIGHT'),
                           style: ElevatedButton.styleFrom(
@@ -135,18 +148,7 @@ class _CarControlScreenState extends State<CarControlScreen> {
                       ],
                     ),
                     const SizedBox(height: 20,),
-                     ElevatedButton(
-                          onPressed: () => _sendCommand('STOP'),
-                          style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 30, vertical: 20),
-                            backgroundColor: const Color.fromARGB(255, 226, 60, 60),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                          child: const Icon(Icons.stop,color: Colors.white),
-                        ),
+                     
                   ],
                 ),
               ),

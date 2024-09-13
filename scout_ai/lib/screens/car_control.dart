@@ -17,6 +17,12 @@ class _CarControlScreenState extends State<CarControlScreen> {
   void initState() {
     super.initState();
     _webSocketService = WebSocketService('ws://10.0.2.2:8080');
+     // Listen for detection results from the WebSocket service
+    _webSocketService.detectionResultsStream.listen((result) {
+      setState(() {
+        detectionResult = result; // Update the detection result
+      });
+    });
   }
 
   @override

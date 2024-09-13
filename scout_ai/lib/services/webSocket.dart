@@ -1,11 +1,14 @@
 import 'dart:async';
 import 'dart:typed_data';
+import 'dart:convert';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class WebSocketService {
   final WebSocketChannel _channel;
-  final StreamController<Uint8List> _videoStreamController = StreamController<Uint8List>.broadcast();
-  final StreamController<String> _detectionResultsController = StreamController<String>.broadcast();
+  final StreamController<Uint8List> _videoStreamController =
+      StreamController<Uint8List>.broadcast();
+  final StreamController<String> _detectionResultsController =
+      StreamController<String>.broadcast();
 
   WebSocketService(String url)
       : _channel = WebSocketChannel.connect(Uri.parse(url)) {
@@ -17,10 +20,25 @@ class WebSocketService {
       (data) {
         if (data is Uint8List) {
           print('Received binary data of length: ${data.length}');
-          _videoStreamController.add(data);  // Add binary data to video stream
+          _videoStreamController.add(data); // Add binary data to video stream
         } else if (data is String) {
+          try {
+            final decodedData = jsonDecode(data) as List<dynamic>;
+            if (decodedData.isNotEmpty && decodedData[0] is Map<String, dynamic>) {
+              final label = decodedData[0]['label'] as String?;
+              if (label != null) {
+                String formattedLabel = 'label: $label';
+                print(formattedLabel);
+                _detectionResultsController.add(formattedLabel);  // Add the formatted label to the stream
+              } else {
+                print('Label not found in the received data');
+              }
+            }
+          } catch (e) {
+            print('Error parsing detection result: $e');
+          }
           print('Received detection result: $data');
-          _detectionResultsController.add(data);  // Add text data to detection results stream
+          // Add text data to detection results stream
         } else {
           print('Received unknown data type');
         }
@@ -53,14 +71,15 @@ class WebSocketService {
   Stream<Uint8List> get videoStream => _videoStreamController.stream;
 
   // Getter for detection results stream
-  Stream<String> get detectionResultsStream => _detectionResultsController.stream;
+  Stream<String> get detectionResultsStream =>
+      _detectionResultsController.stream;
 
   // Attempt to reconnect on connection loss
   void _attemptReconnect(String url) {
     Future.delayed(Duration(seconds: 5), () {
       if (!_videoStreamController.isClosed) {
         print('Attempting to reconnect to WebSocket...');
-        WebSocketService(url);  // Reconnect by creating a new instance
+        WebSocketService(url); // Reconnect by creating a new instance
       }
     });
   }

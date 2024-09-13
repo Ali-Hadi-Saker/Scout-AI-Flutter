@@ -5,6 +5,7 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 class WebSocketService {
   final WebSocketChannel _channel;
   final StreamController<Uint8List> _controller = StreamController<Uint8List>.broadcast();
+  final StreamController<String> _detectionResultsController = StreamController<String>.broadcast();
 
   WebSocketService(String url)
       : _channel = WebSocketChannel.connect(Uri.parse(url)) {

@@ -11,6 +11,7 @@ class CarControlScreen extends StatefulWidget {
 
 class _CarControlScreenState extends State<CarControlScreen> {
   late WebSocketService _webSocketService;
+  String detectionResult = "No detection results yet";
 
   @override
   void initState() {

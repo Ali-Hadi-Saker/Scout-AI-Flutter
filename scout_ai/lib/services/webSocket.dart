@@ -53,6 +53,8 @@ class WebSocketService {
 
   // Getter for the video stream
   Stream<Uint8List> get videoStream => _controller.stream;
+  // Getter for detection results stream
+  Stream<String> get detectionResultsStream => _detectionResultsController.stream;
 
   // Attempt to reconnect on connection loss
   void _attemptReconnect(String url) {

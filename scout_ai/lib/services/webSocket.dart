@@ -18,6 +18,10 @@ class WebSocketService {
         if (data is Uint8List) {
           print('Received binary data of length: ${data.length}');
           _controller.add(data);
+        } else if (data is String) {
+          // Handle string messages, assuming detection results are sent as text
+          print('Received detection result: $data');
+          _detectionResultsController.add(data);
         } else {
           print('Received unknown data type');
         }

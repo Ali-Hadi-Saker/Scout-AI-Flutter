@@ -70,6 +70,16 @@ class _CarControlScreenState extends State<CarControlScreen> {
               ),
             ),
             const SizedBox(height: 20),
+            Text(
+              'Detection Result: $detectionResult',
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 20),
             Expanded(
               child: Center(
                 child: Column(

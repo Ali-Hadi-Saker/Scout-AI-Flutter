@@ -4,7 +4,7 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 
 class WebSocketService {
   final WebSocketChannel _channel;
-  final StreamController<Uint8List> _controller = StreamController<Uint8List>.broadcast();
+  final StreamController<Uint8List> _videoStreamController = StreamController<Uint8List>.broadcast();
   final StreamController<String> _detectionResultsController = StreamController<String>.broadcast();
 
   WebSocketService(String url)
@@ -17,19 +17,17 @@ class WebSocketService {
       (data) {
         if (data is Uint8List) {
           print('Received binary data of length: ${data.length}');
-          _controller.add(data);
+          _videoStreamController.add(data);  // Add binary data to video stream
         } else if (data is String) {
-          // Handle string messages, assuming detection results are sent as text
           print('Received detection result: $data');
-          _detectionResultsController.add(data);
+          _detectionResultsController.add(data);  // Add text data to detection results stream
         } else {
           print('Received unknown data type');
         }
       },
       onError: (error) {
-        // Handle WebSocket errors
         print('WebSocket error: $error');
-        _controller.addError(error);
+        _videoStreamController.addError(error);
         _attemptReconnect(url);
       },
       onDone: () {
@@ -52,24 +50,25 @@ class WebSocketService {
   }
 
   // Getter for the video stream
-  Stream<Uint8List> get videoStream => _controller.stream;
+  Stream<Uint8List> get videoStream => _videoStreamController.stream;
+
   // Getter for detection results stream
   Stream<String> get detectionResultsStream => _detectionResultsController.stream;
 
   // Attempt to reconnect on connection loss
   void _attemptReconnect(String url) {
-    // Wait a bit before reconnecting
     Future.delayed(Duration(seconds: 5), () {
-      if (!_controller.isClosed) {
+      if (!_videoStreamController.isClosed) {
         print('Attempting to reconnect to WebSocket...');
-        WebSocketService(url); // Reconnect by creating a new instance
+        WebSocketService(url);  // Reconnect by creating a new instance
       }
     });
   }
 
   // Dispose method to close resources
   void dispose() {
-    _controller.close();
+    _videoStreamController.close();
+    _detectionResultsController.close();
     _channel.sink.close();
   }
 }

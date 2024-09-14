@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scout_ai/utils/constant.dart';
 import 'package:scout_ai/widgets/button.dart';
-import 'package:scout_ai/widgets/input_field.dart';
 
 class UploadItemScreen extends StatefulWidget {
   const UploadItemScreen({super.key});
@@ -50,8 +49,7 @@ class _UploadItemScreenState extends State<UploadItemScreen> {
               controller: _objectNameController,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  
+                  borderRadius: BorderRadius.circular(10),                  
                 ),
                 labelText: 'Enter object name',
                 hintText: 'e.g., Bottle, Car, Person',

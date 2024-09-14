@@ -95,7 +95,7 @@ class _SettingScreenState extends State<SettingScreen> {
             ),
             CustomizedButton(
                 color: AppColors.primaryButtonColor,
-                text: "Password and Security",
+                text: "Security",
                 onPressed: () => Navigator.pushNamed(context, "security"),
                 suffexIcon: const Icon(Icons.arrow_forward_ios_sharp),
                 preffixIcon: const Icon(Icons.shield_rounded),

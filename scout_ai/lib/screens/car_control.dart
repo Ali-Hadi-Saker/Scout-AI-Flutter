@@ -3,7 +3,8 @@ import 'package:scout_ai/services/websocket.dart';
 import 'package:scout_ai/widgets/video_stream.dart';
 
 class CarControlScreen extends StatefulWidget {
-  const CarControlScreen({super.key});
+  final String? objectName;
+  const CarControlScreen({super.key, this.objectName});
 
   @override
   State<CarControlScreen> createState() => _CarControlScreenState();
@@ -17,7 +18,7 @@ class _CarControlScreenState extends State<CarControlScreen> {
   void initState() {
     super.initState();
     _webSocketService = WebSocketService('ws://10.0.2.2:8080');
-     // Listen for detection results from the WebSocket service
+    // Listen for detection results from the WebSocket service
     _webSocketService.detectionResultsStream.listen((result) {
       setState(() {
         detectionResult = result; // Update the detection result
@@ -30,7 +31,7 @@ class _CarControlScreenState extends State<CarControlScreen> {
     _webSocketService.dispose();
     super.dispose();
   }
-  
+
   void _sendCommand(String command) {
     _webSocketService.send(command);
   }
@@ -45,7 +46,6 @@ class _CarControlScreenState extends State<CarControlScreen> {
         ),
         title: const Text("Car Control"),
         centerTitle: true,
-        
       ),
       body: Padding(
         padding: const EdgeInsets.all(15),
@@ -92,7 +92,10 @@ class _CarControlScreenState extends State<CarControlScreen> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
-                          child: const Icon(Icons.arrow_upward,color: Colors.white,),
+                          child: const Icon(
+                            Icons.arrow_upward,
+                            color: Colors.white,
+                          ),
                         ),
                       ],
                     ),
@@ -110,7 +113,8 @@ class _CarControlScreenState extends State<CarControlScreen> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
-                          child: const Icon(Icons.arrow_back,color: Colors.white),
+                          child:
+                              const Icon(Icons.arrow_back, color: Colors.white),
                         ),
                         const SizedBox(width: 20),
                         ElevatedButton(
@@ -118,12 +122,13 @@ class _CarControlScreenState extends State<CarControlScreen> {
                           style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 30, vertical: 20),
-                            backgroundColor: const Color.fromARGB(255, 226, 60, 60),
+                            backgroundColor:
+                                const Color.fromARGB(255, 226, 60, 60),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
-                          child: const Icon(Icons.stop,color: Colors.white),
+                          child: const Icon(Icons.stop, color: Colors.white),
                         ),
                         const SizedBox(width: 20),
                         ElevatedButton(
@@ -136,7 +141,8 @@ class _CarControlScreenState extends State<CarControlScreen> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
-                          child: const Icon(Icons.arrow_forward,color: Colors.white),
+                          child: const Icon(Icons.arrow_forward,
+                              color: Colors.white),
                         ),
                       ],
                     ),
@@ -154,12 +160,14 @@ class _CarControlScreenState extends State<CarControlScreen> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
-                          child: const Icon(Icons.arrow_downward,color: Colors.white),
+                          child: const Icon(Icons.arrow_downward,
+                              color: Colors.white),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20,),
-                     
+                    const SizedBox(
+                      height: 20,
+                    ),
                   ],
                 ),
               ),

@@ -46,7 +46,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back)),
-        title: const Text("Password and Security"),
+        title: const Text("Security"),
         centerTitle: true,
       ),
       body: Padding(

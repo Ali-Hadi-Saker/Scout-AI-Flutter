@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scout_ai/utils/constant.dart';
 import 'package:scout_ai/widgets/button.dart';
+import 'package:scout_ai/widgets/input_field.dart';
 
 class UploadItemScreen extends StatefulWidget {
   const UploadItemScreen({super.key});
@@ -43,7 +44,19 @@ class _UploadItemScreenState extends State<UploadItemScreen> {
                 
               ),
             ),
-            const SizedBox(height: 15,),
+            const SizedBox(height: 15),
+            // Input field for object name
+            TextField(
+              controller: _objectNameController,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  
+                ),
+                labelText: 'Enter object name',
+                hintText: 'e.g., Bottle, Car, Person',
+              ),)
+,            const SizedBox(height: 15,),
             CustomizedButton(
               color: AppColors.primaryButtonColor,
               text: "Start Search", 

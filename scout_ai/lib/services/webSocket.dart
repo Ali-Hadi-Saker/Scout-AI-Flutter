@@ -19,7 +19,7 @@ class WebSocketService {
     _channel.stream.listen(
       (data) {
         if (data is Uint8List) {
-          print('Received binary data of length: ${data.length}');
+          // print('Received binary data of length: ${data.length}');
           _videoStreamController.add(data); // Add binary data to video stream
         } else if (data is String) {
           String validJsonData = data.replaceAll("'", '"');
@@ -37,8 +37,6 @@ class WebSocketService {
           } catch (e) {
             print('Error parsing detection result: $e');
           }
-          print('Received detection result: $data');
-          // Add text data to detection results stream
         } else {
           print('Received unknown data type');
         }

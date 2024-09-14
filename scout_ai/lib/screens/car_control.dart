@@ -13,6 +13,7 @@ class CarControlScreen extends StatefulWidget {
 class _CarControlScreenState extends State<CarControlScreen> {
   late WebSocketService _webSocketService;
   String detectionResult = "No detection results yet";
+  bool isMatched = false;
 
   @override
   void initState() {
@@ -34,6 +35,14 @@ class _CarControlScreenState extends State<CarControlScreen> {
 
   void _sendCommand(String command) {
     _webSocketService.send(command);
+  }
+
+  void _checkMatch() {
+    if (widget.objectName?.trim().toLowerCase() == detectionResult) {
+      isMatched = true;
+    } else {
+      isMatched = false;
+    }
   }
 
   @override

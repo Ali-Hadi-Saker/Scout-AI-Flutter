@@ -83,6 +83,14 @@ class _CarControlScreenState extends State<CarControlScreen> {
               ),
               textAlign: TextAlign.center,
             ),
+            if(isMatched)
+              Row(
+                children: [
+                  Text('Object Found!!'),
+                  Icon(Icons.check_box)
+                ],
+              )
+            ,
             const SizedBox(height: 20),
             Expanded(
               child: Center(

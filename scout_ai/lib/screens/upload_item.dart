@@ -60,7 +60,7 @@ class _UploadItemScreenState extends State<UploadItemScreen> {
               color: AppColors.primaryButtonColor,
               text: "Start Search", 
               onPressed: ()=>{
-                objectName = _objectNameController.text,
+                objectName = _objectNameController.text.trim().toLowerCase(),
                 Navigator.pushNamed(
                   context,
                   "car-control",

@@ -24,6 +24,10 @@ class _CarControlScreenState extends State<CarControlScreen> {
       setState(() {
         detectionResult = result; // Update the detection result
         _checkMatch();
+    //     if (widget.objectName!.trim().toLowerCase() == result) {
+    //   isMatched = true;
+
+    // }
       });
     });
   }
@@ -39,8 +43,9 @@ class _CarControlScreenState extends State<CarControlScreen> {
   }
 
   void _checkMatch() {
-    if (widget.objectName?.trim().toLowerCase() == detectionResult) {
+    if (widget.objectName == detectionResult) {
       isMatched = true;
+
     } else {
       isMatched = false;
     }

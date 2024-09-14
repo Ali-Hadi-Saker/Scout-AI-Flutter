@@ -23,10 +23,7 @@ class _CarControlScreenState extends State<CarControlScreen> {
     _webSocketService.detectionResultsStream.listen((result) {
       setState(() {
         detectionResult = result; // Update the detection result
-        _checkMatch();
-        //     if (widget.objectName == result.trim().toLowerCase()) {
-        //   isMatched = true;
-        // }
+        _checkMatch(); // Check if the detected object matches the searched object
       });
     });
   }
@@ -37,12 +34,14 @@ class _CarControlScreenState extends State<CarControlScreen> {
     super.dispose();
   }
 
+  // Send control commands to the car
   void _sendCommand(String command) {
     _webSocketService.send(command);
   }
 
+  // Check if the detected object matches the searched object
   void _checkMatch() {
-    if (widget.objectName == detectionResult) {
+    if (widget.objectName?.toLowerCase().trim() == detectionResult.toLowerCase().trim()) {
       isMatched = true;
     } else {
       isMatched = false;
@@ -77,8 +76,9 @@ class _CarControlScreenState extends State<CarControlScreen> {
               ),
             ),
             const SizedBox(height: 20),
+            // Display the object the user is searching for
             Text(
-              'Expected Object: ${widget.objectName ?? "None"}',
+              'Searching for: ${widget.objectName ?? "No object specified"}',
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -86,6 +86,7 @@ class _CarControlScreenState extends State<CarControlScreen> {
               ),
               textAlign: TextAlign.center,
             ),
+            // Display the detection result
             Text(
               'Detection Result: $detectionResult',
               style: const TextStyle(
@@ -95,15 +96,33 @@ class _CarControlScreenState extends State<CarControlScreen> {
               ),
               textAlign: TextAlign.center,
             ),
+            // Display whether the object has been found or not
             if (isMatched)
               Row(
-                children: [Text('Object Found!!'), Icon(Icons.check_box)],
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text(
+                    'Object Found!!',
+                    style: TextStyle(color: Colors.green, fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(width: 8),
+                  Icon(Icons.check_box, color: Colors.green),
+                ],
               )
             else
               Row(
-                children: [Text("Not Found!!"), Icon(Icons.error)],
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text(
+                    "Object Not Found",
+                    style: TextStyle(color: Colors.red, fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(width: 8),
+                  Icon(Icons.error, color: Colors.red),
+                ],
               ),
             const SizedBox(height: 20),
+            // Car control buttons
             Expanded(
               child: Center(
                 child: Column(
@@ -195,9 +214,7 @@ class _CarControlScreenState extends State<CarControlScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
+                    const SizedBox(height: 20),
                   ],
                 ),
               ),
@@ -208,11 +225,3 @@ class _CarControlScreenState extends State<CarControlScreen> {
     );
   }
 }
- // Joystick(
-              //   mode: JoystickMode.all,
-              //   listener: (details) {
-              //     String command = 'x: ${details.x}, y: ${details.y}';
-              //     _webSocketService.send(command);
-              //     print('Joystick direction: ${command}');
-              //   },
-              // ),

@@ -118,7 +118,9 @@ class _SettingScreenState extends State<SettingScreen> {
               heigth: 80,
               suffexIcon: const Icon(Icons.arrow_forward_ios_sharp),
               preffixIcon: Icon(Icons.logout),
-            )
+            ),
+            const SizedBox(height: 20),
+
           ],
         ),
       ),

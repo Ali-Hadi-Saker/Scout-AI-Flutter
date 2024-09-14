@@ -22,14 +22,14 @@ class WebSocketService {
           print('Received binary data of length: ${data.length}');
           _videoStreamController.add(data); // Add binary data to video stream
         } else if (data is String) {
+          String validJsonData = data.replaceAll("'", '"');
           try {
-            final decodedData = jsonDecode(data) as List<dynamic>;
+            final decodedData = jsonDecode(validJsonData) as List<dynamic>;
             if (decodedData.isNotEmpty && decodedData[0] is Map<String, dynamic>) {
               final label = decodedData[0]['label'] as String?;
               if (label != null) {
-                String formattedLabel = 'label: $label';
-                print(formattedLabel);
-                _detectionResultsController.add(formattedLabel);  // Add the formatted label to the stream
+                print(label);
+                _detectionResultsController.add(label);  // Add the formatted label to the stream
               } else {
                 print('Label not found in the received data');
               }

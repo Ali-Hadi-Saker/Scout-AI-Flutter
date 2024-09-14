@@ -10,6 +10,7 @@ class UploadItemScreen extends StatefulWidget {
 }
 
 class _UploadItemScreenState extends State<UploadItemScreen> {
+  final TextEditingController _objectNameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

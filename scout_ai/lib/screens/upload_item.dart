@@ -13,6 +13,7 @@ class _UploadItemScreenState extends State<UploadItemScreen> {
   final TextEditingController _objectNameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    String objectName;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -58,7 +59,14 @@ class _UploadItemScreenState extends State<UploadItemScreen> {
             CustomizedButton(
               color: AppColors.primaryButtonColor,
               text: "Start Search", 
-              onPressed: ()=>{})
+              onPressed: ()=>{
+                objectName = _objectNameController.text,
+                Navigator.pushNamed(
+                  context,
+                  "car-control",
+                  arguments: {'objectName': objectName},
+                )
+              })
           ],
         ),
       ),

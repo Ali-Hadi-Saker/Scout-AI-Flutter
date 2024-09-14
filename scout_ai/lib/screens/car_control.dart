@@ -23,6 +23,7 @@ class _CarControlScreenState extends State<CarControlScreen> {
     _webSocketService.detectionResultsStream.listen((result) {
       setState(() {
         detectionResult = result; // Update the detection result
+        _checkMatch();
       });
     });
   }

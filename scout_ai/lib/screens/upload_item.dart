@@ -13,15 +13,13 @@ class _UploadItemScreenState extends State<UploadItemScreen> {
   final TextEditingController _objectNameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    String objectName;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: ()=>{Navigator.pop(context)}, 
-          icon: const Icon(
-            Icons.arrow_back)),
-            title: const Text("Upload Page"),
-            centerTitle: true,
+            onPressed: () => {Navigator.pop(context)},
+            icon: const Icon(Icons.arrow_back)),
+        title: const Text("Upload Page"),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8),
@@ -31,17 +29,15 @@ class _UploadItemScreenState extends State<UploadItemScreen> {
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey[300],
-                  border: Border.all(color: Colors.grey, width: 3)
-                ),
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey[300],
+                    border: Border.all(color: Colors.grey, width: 3)),
                 child: const Center(
                   child: Icon(
-                    Icons.add_a_photo, 
-                    size: 28,),
-                  
+                    Icons.add_a_photo,
+                    size: 28,
+                  ),
                 ),
-                
               ),
             ),
             const SizedBox(height: 15),
@@ -50,23 +46,27 @@ class _UploadItemScreenState extends State<UploadItemScreen> {
               controller: _objectNameController,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),                  
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 labelText: 'Enter object name',
                 hintText: 'e.g., Bottle, Car, Person',
-              ),)
-,            const SizedBox(height: 15,),
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
             CustomizedButton(
-              color: AppColors.primaryButtonColor,
-              text: "Start Search", 
-              onPressed: ()=>{
-                objectName = _objectNameController.text.trim().toLowerCase(),
-                Navigator.pushNamed(
-                  context,
-                  "car-control",
-                  arguments: {'objectName': objectName},
-                )
-              })
+                color: AppColors.primaryButtonColor,
+                text: "Start Search",
+                onPressed: () {
+                  final objectName =
+                      _objectNameController.text.trim().toLowerCase();
+                  Navigator.pushNamed(
+                    context,
+                    "car-control",
+                    arguments: {'objectName': objectName},
+                  );
+                })
           ],
         ),
       ),

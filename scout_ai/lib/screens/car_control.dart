@@ -24,10 +24,9 @@ class _CarControlScreenState extends State<CarControlScreen> {
       setState(() {
         detectionResult = result; // Update the detection result
         _checkMatch();
-    //     if (widget.objectName!.trim().toLowerCase() == result) {
-    //   isMatched = true;
-
-    // }
+        //     if (widget.objectName == result.trim().toLowerCase()) {
+        //   isMatched = true;
+        // }
       });
     });
   }
@@ -45,7 +44,6 @@ class _CarControlScreenState extends State<CarControlScreen> {
   void _checkMatch() {
     if (widget.objectName == detectionResult) {
       isMatched = true;
-
     } else {
       isMatched = false;
     }
@@ -80,6 +78,15 @@ class _CarControlScreenState extends State<CarControlScreen> {
             ),
             const SizedBox(height: 20),
             Text(
+              'Expected Object: ${widget.objectName ?? "None"}',
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.blue,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            Text(
               'Detection Result: $detectionResult',
               style: const TextStyle(
                 fontSize: 16,
@@ -88,19 +95,13 @@ class _CarControlScreenState extends State<CarControlScreen> {
               ),
               textAlign: TextAlign.center,
             ),
-            if(isMatched)
+            if (isMatched)
               Row(
-                children: [
-                  Text('Object Found!!'),
-                  Icon(Icons.check_box)
-                ],
+                children: [Text('Object Found!!'), Icon(Icons.check_box)],
               )
             else
               Row(
-                children: [
-                  Text("Not Found!!"),
-                  Icon(Icons.error)
-                ],
+                children: [Text("Not Found!!"), Icon(Icons.error)],
               ),
             const SizedBox(height: 20),
             Expanded(

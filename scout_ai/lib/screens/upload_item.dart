@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scout_ai/screens/car_control.dart';
 import 'package:scout_ai/utils/constant.dart';
 import 'package:scout_ai/widgets/button.dart';
 
@@ -61,11 +62,12 @@ class _UploadItemScreenState extends State<UploadItemScreen> {
                 onPressed: () {
                   final objectName =
                       _objectNameController.text.trim().toLowerCase();
-                  Navigator.pushNamed(
+                  Navigator.push(
                     context,
-                    "car-control",
-                    arguments: {'objectName': objectName},
-                  );
+                    MaterialPageRoute(
+                      builder: (context) => CarControlScreen(objectName: objectName,),
+  ),
+);;
                 })
           ],
         ),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:scout_ai/provider/user_provider.dart';
 import 'package:scout_ai/utils/constant.dart';
-import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/edit_input_field.dart';
 import 'package:scout_ai/widgets/screen_icon.dart';
 import 'package:scout_ai/widgets/small_button.dart';
@@ -81,15 +80,21 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               children: [
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: CustomizedButton(
-                      color: AppColors.primaryButtonColor,
-                      text: "Cancel",
-                      onPressed: () {
-                        discard();
-                      },
-                    ),
-                  ),
+                      padding: const EdgeInsets.only(right: 20),
+                      child:
+                          // CustomizedButton(
+                          //   color: AppColors.primaryButtonColor,
+                          //   text: "Cancel",
+                          //   onPressed: () {
+                          //     discard();
+                          //   },
+                          // ),
+                          SmallButton(
+                              color: AppColors.primaryButtonColor,
+                              onPressed: () {
+                                discard();
+                              },
+                              text: "Cancel")),
                 ),
                 Expanded(
                   child: Padding(

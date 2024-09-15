@@ -16,6 +16,11 @@ class SmallButton extends StatelessWidget {
         ),
         color: color,
         onPressed: onPressed,
+        child: Text(
+          text,
+          style: TextStyle(color: Colors.white, fontSize: 20),
+                    textAlign: TextAlign.left,
+        ),
       ),
     );
   }

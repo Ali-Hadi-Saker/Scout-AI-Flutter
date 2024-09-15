@@ -5,6 +5,7 @@ import 'package:scout_ai/utils/constant.dart';
 import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/edit_input_field.dart';
 import 'package:scout_ai/widgets/screen_icon.dart';
+import 'package:scout_ai/widgets/small_button.dart';
 
 class UserInfoScreen extends StatefulWidget {
   const UserInfoScreen({super.key});
@@ -92,15 +93,21 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: CustomizedButton(
-                      color: AppColors.primaryButtonColor,
-                      text: "save",
-                      onPressed: () {
-                        save();
-                      },
-                    ),
-                  ),
+                      padding: const EdgeInsets.only(left: 20),
+                      child: SmallButton(
+                          color: AppColors.primaryButtonColor,
+                          onPressed: () {
+                            save();
+                          },
+                          text: "Save")
+                      // CustomizedButton(
+                      //   color: AppColors.primaryButtonColor,
+                      //   text: "save",
+                      //   onPressed: () {
+                      //     save();
+                      //   },
+                      // ),
+                      ),
                 ),
               ],
             ),

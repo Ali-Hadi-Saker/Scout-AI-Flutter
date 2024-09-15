@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:scout_ai/screens/car_control.dart';
 import 'package:scout_ai/utils/constant.dart';
 import 'package:scout_ai/widgets/button.dart';
+import 'package:scout_ai/widgets/small_button.dart';
 
 class UploadItemScreen extends StatefulWidget {
   const UploadItemScreen({super.key});
@@ -56,19 +57,36 @@ class _UploadItemScreenState extends State<UploadItemScreen> {
             const SizedBox(
               height: 15,
             ),
-            CustomizedButton(
+            // CustomizedButton(
+            //     color: AppColors.primaryButtonColor,
+            //     text: "Start Search",
+            //     onPressed: () {
+            //       final objectName =
+            //           _objectNameController.text.trim().toLowerCase();
+            //       Navigator.push(
+            //         context,
+            //         MaterialPageRoute(
+            //           builder: (context) => CarControlScreen(
+            //             objectName: objectName,
+            //           ),
+            //         ),
+            //       );
+            //     })
+            SmallButton(
                 color: AppColors.primaryButtonColor,
-                text: "Start Search",
                 onPressed: () {
                   final objectName =
                       _objectNameController.text.trim().toLowerCase();
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CarControlScreen(objectName: objectName,),
-  ),
-);;
-                })
+                      builder: (context) => CarControlScreen(
+                        objectName: objectName,
+                      ),
+                    ),
+                  );
+                },
+                text: "Start search")
           ],
         ),
       ),

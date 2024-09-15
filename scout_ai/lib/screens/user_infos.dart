@@ -81,20 +81,12 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                 Expanded(
                   child: Padding(
                       padding: const EdgeInsets.only(right: 20),
-                      child:
-                          // CustomizedButton(
-                          //   color: AppColors.primaryButtonColor,
-                          //   text: "Cancel",
-                          //   onPressed: () {
-                          //     discard();
-                          //   },
-                          // ),
-                          SmallButton(
-                              color: AppColors.primaryButtonColor,
-                              onPressed: () {
-                                discard();
-                              },
-                              text: "Cancel")),
+                      child: SmallButton(
+                          color: AppColors.primaryButtonColor,
+                          onPressed: () {
+                            discard();
+                          },
+                          text: "Cancel")),
                 ),
                 Expanded(
                   child: Padding(
@@ -104,15 +96,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                           onPressed: () {
                             save();
                           },
-                          text: "Save")
-                      // CustomizedButton(
-                      //   color: AppColors.primaryButtonColor,
-                      //   text: "save",
-                      //   onPressed: () {
-                      //     save();
-                      //   },
-                      // ),
-                      ),
+                          text: "Save")),
                 ),
               ],
             ),

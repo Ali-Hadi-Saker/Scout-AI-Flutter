@@ -36,6 +36,15 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
     }
   }
 
+  void _pickImage() async {
+    final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      setState(() {
+        _profileImage = File(pickedFile.path);
+      });
+    }
+  }
+
   void save() {
     final newName = fnameController.text;
     final userProvider = context.read<UserProvider>();
@@ -72,10 +81,21 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               onTap: () {
                 print("select image");
               },
-              child: CircleAvatar(
-                radius: 50,
-                backgroundImage: AssetImage('assets/images/default-profile.png'),
-              ),
+              child: Stack(children: [
+                CircleAvatar(
+                  radius: 50,
+                  backgroundImage:
+                      AssetImage('assets/images/default-profile.png'),
+                ),
+                Positioned(
+                    bottom: 0,
+                    right: 0,
+                    child: Icon(
+                      Icons.add_a_photo,
+                      size: 24,
+                      color: Colors.grey,
+                    ))
+              ]),
             ),
             const SizedBox(height: 100),
             editInputField(

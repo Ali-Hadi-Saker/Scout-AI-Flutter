@@ -85,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           const Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              "Hello,\nWelcome Back!!",
+                              "Hello,\nWelcome Back",
                               style: TextStyle(
                                   fontSize: 28,
                                   fontWeight: FontWeight.bold,
@@ -119,7 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const Text(
-                                "Don't have an account ",
+                                "Don't have an account? ",
                                 style: TextStyle(color: Colors.white),
                               ),
                               InkWell(

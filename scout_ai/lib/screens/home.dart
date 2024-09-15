@@ -14,7 +14,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(246, 246, 246, 1),
-      body: Padding(
+      body: Stack(
+        children: [
+          Positioned(
+            top: 0,
+            left: 0,
+            child: Image.asset('assets/images/bg-design-1.png'),
+            width: 150,
+            height: 150,),
+          Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -57,6 +65,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+        ],
+      )
     );
   }
 }

@@ -78,10 +78,8 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
           children: [
             // const ScreenIcon(screenIon: Icon(Icons.edit)),
             GestureDetector(
-              onTap: () {
-                print("select image");
-              },
-              child: Stack(children: [
+              onTap: _pickImage,
+              child: const Stack(children: [
                 CircleAvatar(
                   radius: 50,
                   backgroundImage:
@@ -133,6 +131,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                 ),
               ],
             ),
+            const SizedBox(height: 20,)
           ],
         ),
       ),

@@ -16,7 +16,9 @@ class _UploadItemScreenState extends State<UploadItemScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.bgColor,
       appBar: AppBar(
+      backgroundColor: AppColors.bgColor,
         leading: IconButton(
             onPressed: () => {Navigator.pop(context)},
             icon: const Icon(Icons.arrow_back)),

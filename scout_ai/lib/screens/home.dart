@@ -13,7 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(246, 246, 246, 1),
+      backgroundColor: AppColors.bgColor,
       body: Stack(
         children: [
           Positioned(

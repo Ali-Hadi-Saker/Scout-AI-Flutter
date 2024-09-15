@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scout_ai/services/websocket.dart';
+import 'package:scout_ai/utils/constant.dart';
 import 'package:scout_ai/widgets/video_stream.dart';
 
 class CarControlScreen extends StatefulWidget {
@@ -51,7 +52,9 @@ class _CarControlScreenState extends State<CarControlScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.bgColor,
       appBar: AppBar(
+        backgroundColor: AppColors.bgColor,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back),

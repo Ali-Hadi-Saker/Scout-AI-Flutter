@@ -113,7 +113,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                   child: Padding(
                       padding: const EdgeInsets.only(right: 20),
                       child: SmallButton(
-                          color: AppColors.primaryButtonColor,
+                          gradient: AppColors.primaryButtonGradient,
                           onPressed: () {
                             discard();
                           },
@@ -123,7 +123,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                   child: Padding(
                       padding: const EdgeInsets.only(left: 20),
                       child: SmallButton(
-                          color: AppColors.primaryButtonColor,
+                          gradient: AppColors.primaryButtonGradient,
                           onPressed: () {
                             save();
                           },

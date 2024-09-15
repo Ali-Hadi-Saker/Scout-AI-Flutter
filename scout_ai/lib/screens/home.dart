@@ -18,10 +18,22 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Positioned(
             top: 0,
-            left: 0,
+            left: 100,
             child: Image.asset('assets/images/bg-design-1.png'),
             width: 150,
             height: 150,),
+            Positioned(
+            bottom: 300,
+            right: 10,
+            child: Image.asset('assets/images/bg-design-2.png'),
+            width: 150,
+            height: 150,),
+            Positioned(
+            top: 200,
+            left: 0,
+            child: Image.asset('assets/images/bg-design-4.png'),
+            width: 100,
+            height: 100,),
           Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(

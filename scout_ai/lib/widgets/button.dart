@@ -7,7 +7,8 @@ class CustomizedButton extends StatelessWidget {
   final double? height;
   final Icon? preffixIcon;
   final Icon? suffexIcon;
-  final Color color;
+  final LinearGradient gradient; 
+
   const CustomizedButton({
     super.key,
     required this.text,
@@ -16,7 +17,7 @@ class CustomizedButton extends StatelessWidget {
     this.suffexIcon,
     this.height,
     this.preffixIcon,
-    required this.color,
+    required this.gradient, 
   });
 
   @override
@@ -24,13 +25,16 @@ class CustomizedButton extends StatelessWidget {
     return SizedBox(
       width: width ?? double.infinity,
       height: height,
-      child: MaterialButton(
-        shape: RoundedRectangleBorder(
+      child: Container(
+        decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
+          gradient: gradient, 
         ),
-        color: color,
-        onPressed: onPressed,
-        child: Padding(
+        child: MaterialButton(
+          onPressed: onPressed,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
           padding: const EdgeInsets.all(15),
           child: Row(
             children: [
@@ -43,7 +47,7 @@ class CustomizedButton extends StatelessWidget {
                 ),
                 const SizedBox(width: 8), // Space between icon and text
               ],
-              SizedBox(width: 10,),
+              const SizedBox(width: 10),
               // Text expanded to the left
               Expanded(
                 child: Align(
@@ -55,7 +59,6 @@ class CustomizedButton extends StatelessWidget {
                   ),
                 ),
               ),
-    
               // Suffix Icon (right)
               if (suffexIcon != null) ...[
                 const SizedBox(width: 8), // Space between text and icon

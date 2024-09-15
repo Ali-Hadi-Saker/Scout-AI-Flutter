@@ -1,4 +1,6 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:scout_ai/provider/user_provider.dart';
 import 'package:scout_ai/utils/constant.dart';
@@ -17,6 +19,8 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
   String? email;
   late TextEditingController fnameController;
   late TextEditingController emailController;
+  File? _profileImage;
+  final ImagePicker _picker = ImagePicker();
   @override
   void initState() {
     super.initState();
@@ -63,7 +67,16 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
         padding: const EdgeInsets.only(top: 8, bottom: 8, left: 18, right: 18),
         child: Column(
           children: [
-            const ScreenIcon(screenIon: Icon(Icons.edit)),
+            // const ScreenIcon(screenIon: Icon(Icons.edit)),
+            GestureDetector(
+              onTap: () {
+                print("select image");
+              },
+              child: CircleAvatar(
+                radius: 50,
+                backgroundImage: AssetImage('assets/images/default-profile.png'),
+              ),
+            ),
             const SizedBox(height: 100),
             editInputField(
               prefixIcon: const Icon(Icons.person),

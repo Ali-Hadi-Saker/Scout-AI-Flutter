@@ -4,9 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:scout_ai/utils/constant.dart';
-import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/edit_input_field.dart';
 import 'package:scout_ai/widgets/screen_icon.dart';
+import 'package:scout_ai/widgets/small_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SecurityScreen extends StatefulWidget {
@@ -62,37 +62,50 @@ class _SecurityScreenState extends State<SecurityScreen> {
               prefixIcon: const Icon(Icons.shield_rounded),
             ),
             editInputField(
-              hintText: "New Password", 
+              hintText: "New Password",
               prefixIcon: const Icon(Icons.shield_rounded),
               controller: newPasswordController,
             ),
             editInputField(
-              hintText: "Confirm New Password", 
+              hintText: "Confirm New Password",
               prefixIcon: const Icon(Icons.shield_rounded),
               controller: confirmNewPasswordController,
             ),
             const Spacer(),
             Row(
               children: [
-                Expanded(child: Padding(
+                Expanded(
+                    child: Padding(
                   padding: const EdgeInsets.only(right: 20),
-                  child: CustomizedButton(
-                    color: AppColors.primaryButtonColor,
-                    text: 'Cancel', 
-                    onPressed: ()=> print('Change canceld')),
+                  child: 
+                  // CustomizedButton(
+                  //     color: AppColors.primaryButtonColor,
+                  //     text: 'Cancel',
+                  //     onPressed: () => print('Change canceld')),
+                  SmallButton(
+                                color: AppColors.primaryButtonColor,
+                                onPressed: () {
+                                  print('Changed canceld');
+                                },
+                                text: 'Cancel')
                 )),
-                Expanded(child: Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: CustomizedButton(
-                    color: AppColors.primaryButtonColor,
-                    text: 'Save', 
-                    onPressed: ()=> print('Changes saved')),
-                ))
-
+                Expanded(
+                    child: Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child:
+                            // CustomizedButton(
+                            //   color: AppColors.primaryButtonColor,
+                            //   text: 'Save',
+                            //   onPressed: ()=> print('Changes saved')),
+                            SmallButton(
+                                color: AppColors.primaryButtonColor,
+                                onPressed: () {
+                                  print('Changed saved');
+                                },
+                                text: 'Save')))
               ],
             ),
             const SizedBox(height: 20),
-
           ],
         ),
       ),

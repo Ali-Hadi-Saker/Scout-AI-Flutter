@@ -89,7 +89,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 onPressed: () => Navigator.pushNamed(context, "user-infos"),
                 suffexIcon: const Icon(Icons.arrow_forward_ios_sharp),
                 preffixIcon: const Icon(Icons.edit),
-                heigth: 80),
+                height: 80),
             const SizedBox(
               height: 20,
             ),
@@ -99,7 +99,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 onPressed: () => Navigator.pushNamed(context, "security"),
                 suffexIcon: const Icon(Icons.arrow_forward_ios_sharp),
                 preffixIcon: const Icon(Icons.shield_rounded),
-                heigth: 80),
+                height: 80),
             const SizedBox(
               height: 20,
             ),
@@ -109,13 +109,13 @@ class _SettingScreenState extends State<SettingScreen> {
                 onPressed: () => Navigator.pushNamed(context, "history"),
                 suffexIcon: const Icon(Icons.arrow_forward_ios_sharp),
                 preffixIcon: const Icon(Icons.history),
-                heigth: 80),
+                height: 80),
             Spacer(),
             CustomizedButton(
               color: AppColors.logoutButtonColor,
               text: "Logout",
               onPressed: logout,
-              heigth: 80,
+              height: 80,
               suffexIcon: const Icon(Icons.arrow_forward_ios_sharp),
               preffixIcon: Icon(Icons.logout),
             ),

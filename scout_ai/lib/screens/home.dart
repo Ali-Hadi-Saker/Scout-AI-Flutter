@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const Spacer(),
             CustomizedButton(
               color: AppColors.primaryButtonColor,
-              heigth: 80,
+              height: 80,
               text: "Search for an Item",
               onPressed: () {
                 Navigator.pushNamed(context, "upload-item");
@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 15),
             CustomizedButton(
               color: AppColors.primaryButtonColor,
-              heigth: 80,
+              height: 80,
               text: "Drive your Car",
               onPressed: () {
                 Navigator.pushNamed(context, "car-control");

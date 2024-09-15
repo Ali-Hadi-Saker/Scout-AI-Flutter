@@ -31,7 +31,7 @@ class CustomizedButton extends StatelessWidget {
         color: color,
         onPressed: onPressed,
         child: Padding(
-          padding: const EdgeInsets.only(bottom: 15, top: 15),
+          padding: const EdgeInsets.all(15),
           child: Row(
             children: [
               // Prefix Icon (left)

@@ -98,7 +98,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
                             //   text: 'Save',
                             //   onPressed: ()=> print('Changes saved')),
                             SmallButton(
-                                color: AppColors.primaryButtonColor,
+                                gradient: AppColors.primaryButtonGradient,
                                 onPressed: () {
                                   print('Changed saved');
                                 },

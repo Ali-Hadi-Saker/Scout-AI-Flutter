@@ -104,7 +104,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       obscureText: true,
                     ),
                     CustomizedButton(
-                        color: AppColors.primaryButtonColor,
+                        gradient: AppColors.primaryButtonGradient,
                         text: "Sign Up",
                         onPressed: () => createUser()),
                         const SizedBox(

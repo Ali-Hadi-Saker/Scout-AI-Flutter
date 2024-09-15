@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const Spacer(),
             CustomizedButton(
-              color: AppColors.primaryButtonColor,
+              gradient: AppColors.primaryButtonGradient,
               height: 80,
               text: "Search for an Item",
               onPressed: () {
@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(height: 15),
             CustomizedButton(
-              color: AppColors.primaryButtonColor,
+              gradient: AppColors.primaryButtonGradient,
               height: 80,
               text: "Drive your Car",
               onPressed: () {

@@ -106,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               icon: Icons.lock,
                               obscureText: true),
                           CustomizedButton(
-                              color: AppColors.primaryButtonColor,
+                              gradient: AppColors.primaryButtonGradient,
                               text: "Login",
                               onPressed: () => {
                                     // Navigator.pushNamed(context, "home")
@@ -129,10 +129,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 child: const Text(
                                   "Sign Up",
                                   style: TextStyle(
-                                    color: Colors.blue,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15
-                                  ),
+                                      color: Colors.blue,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15),
                                 ),
                               ),
                             ],

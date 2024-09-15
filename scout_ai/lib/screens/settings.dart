@@ -55,20 +55,16 @@ class _SettingScreenState extends State<SettingScreen> {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.grey[300],
+                color: Color.fromARGB(255, 194, 199, 204),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Row(
                 children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.grey[400],
-                    radius: 30,
-                    child: const Icon(
-                      Icons.person,
-                      size: 30,
-                      color: Colors.white,
-                    ),
-                  ),
+                  const CircleAvatar(
+                  radius: 50,
+                  backgroundImage:
+                      AssetImage('assets/images/default-profile.png'),
+                ),
                   const SizedBox(width: 20),
                   Text(
                     '$name',

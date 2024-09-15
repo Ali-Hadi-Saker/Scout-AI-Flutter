@@ -5,15 +5,20 @@ class SmallButton extends StatelessWidget {
   final Color color;
   final String text;
   final VoidCallback onPressed;
-  const SmallButton({super.key, required this.color, required this.onPressed, required this.text});
+  final bool isFullWidth;
+  const SmallButton(
+      {super.key,
+      required this.color,
+      required this.onPressed,
+      required this.text,
+      this.isFullWidth = false});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      width: isFullWidth ? double.infinity : null,
       child: MaterialButton(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8)
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         color: color,
         onPressed: onPressed,
         child: Padding(
@@ -21,7 +26,7 @@ class SmallButton extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(color: Colors.white, fontSize: 20),
-                      textAlign: TextAlign.left,
+            textAlign: TextAlign.left,
           ),
         ),
       ),

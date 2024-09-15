@@ -74,6 +74,7 @@ class _UploadItemScreenState extends State<UploadItemScreen> {
             //     })
             SmallButton(
                 color: AppColors.primaryButtonColor,
+                isFullWidth: true,
                 onPressed: () {
                   final objectName =
                       _objectNameController.text.trim().toLowerCase();

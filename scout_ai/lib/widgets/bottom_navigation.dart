@@ -15,15 +15,16 @@ class _BottomNavState extends State<BottomNav> {
   int selectedIndex = 0;
   List<Widget> screens = [];
 
+  @override
   void initState() {
     super.initState();
     screens = [
     HomeScreen(
       onNavigate: _onNavigate,
     ),
-    UploadItemScreen(),
-    CarControlScreen(),
-    SettingScreen()
+    const UploadItemScreen(),
+    const CarControlScreen(),
+    const SettingScreen()
   ];
   }
 
@@ -46,6 +47,7 @@ class _BottomNavState extends State<BottomNav> {
     return Scaffold(
       body: screens[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
           currentIndex: selectedIndex,
           onTap: itemTaped,
           selectedItemColor: Colors.blue,

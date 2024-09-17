@@ -1,6 +1,9 @@
 import 'dart:convert';
+import 'dart:js';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:scout_ai/provider/user_provider.dart';
 import 'package:scout_ai/utils/constant.dart';
 import 'package:scout_ai/widgets/button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -14,32 +17,35 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
   late SharedPreferences prefs;
+
   String? name;
-  @override
-  void initState() {
-    super.initState();
-    loadUserData();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   loadUserData();
+  // }
 
-  void loadUserData() async {
-    prefs = await SharedPreferences.getInstance();
-    String userDataJson = prefs.getString('userData')!;
+  // void loadUserData() async {
+  //   prefs = await SharedPreferences.getInstance();
+  //   String userDataJson = prefs.getString('userData')!;
 
-    var userData = jsonDecode(userDataJson);
-    setState(() {
-      name = userData['fname'];
-    });
-    print('$name');
-  }
+  //   var userData = jsonDecode(userDataJson);
+  //   setState(() {
+  //     name = userData['fname'];
+  //   });
+  //   print('$name');
+  // }
 
   void logout() async {
     prefs = await SharedPreferences.getInstance();
-    await prefs.remove('userToken');
-    await prefs.setBool('isLogged', false);
-    Navigator.pushReplacementNamed(context, 'login');}
+    await prefs.clear();
+    Navigator.pushReplacementNamed(context, 'login');
+  }
 
   @override
   Widget build(BuildContext context) {
+    final userProvider = Provider.of<UserProvider>(context);
+    final String? fname = userProvider.user?.fname;
     return Scaffold(
       backgroundColor: AppColors.bgColor,
       appBar: AppBar(
@@ -63,13 +69,13 @@ class _SettingScreenState extends State<SettingScreen> {
               child: Row(
                 children: [
                   const CircleAvatar(
-                  radius: 50,
-                  backgroundImage:
-                      AssetImage('assets/images/default-profile.png'),
-                ),
+                    radius: 50,
+                    backgroundImage:
+                        AssetImage('assets/images/default-profile.png'),
+                  ),
                   const SizedBox(width: 20),
                   Text(
-                    '$name',
+                    fname ?? "No Name",
                     style: const TextStyle(
                       fontSize: 18,
                       color: Colors.black87,
@@ -118,7 +124,6 @@ class _SettingScreenState extends State<SettingScreen> {
               preffixIcon: Icon(Icons.logout),
             ),
             const SizedBox(height: 20),
-
           ],
         ),
       ),

@@ -31,21 +31,11 @@ class _SecurityScreenState extends State<SecurityScreen> {
       print("All Fields are Required!!");
       return;
     }
+    if (newPassword != confirmNewPassword) {
+      print("New password and confirm new password do not match");
+      return;
+    }
   }
-  // void initState() {
-  //   super.initState();
-  //   loadUserData();
-  // }
-
-  // void loadUserData() async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   String userDataJson = prefs.getString('userData')!;
-
-  //   var userData = jsonDecode(userDataJson);
-  //   setState(() {
-  //     currentPassword = userData['password'];
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -87,31 +77,21 @@ class _SecurityScreenState extends State<SecurityScreen> {
                 Expanded(
                     child: Padding(
                         padding: const EdgeInsets.only(right: 20),
-                        child:
-                            // CustomizedButton(
-                            //     color: AppColors.primaryButtonColor,
-                            //     text: 'Cancel',
-                            //     onPressed: () => print('Change canceld')),
-                            SmallButton(
-                                gradient: AppColors.primaryButtonGradient,
-                                onPressed: () {
-                                  print('Changed canceld');
-                                },
-                                text: 'Cancel'))),
+                        child: SmallButton(
+                            gradient: AppColors.primaryButtonGradient,
+                            onPressed: () {
+                              print('Changed canceld');
+                            },
+                            text: 'Cancel'))),
                 Expanded(
                     child: Padding(
                         padding: const EdgeInsets.only(left: 20),
-                        child:
-                            // CustomizedButton(
-                            //   color: AppColors.primaryButtonColor,
-                            //   text: 'Save',
-                            //   onPressed: ()=> print('Changes saved')),
-                            SmallButton(
-                                gradient: AppColors.primaryButtonGradient,
-                                onPressed: () {
-                                  _changePassword();
-                                },
-                                text: 'Save')))
+                        child: SmallButton(
+                            gradient: AppColors.primaryButtonGradient,
+                            onPressed: () {
+                              _changePassword();
+                            },
+                            text: 'Save')))
               ],
             ),
             const SizedBox(height: 20),

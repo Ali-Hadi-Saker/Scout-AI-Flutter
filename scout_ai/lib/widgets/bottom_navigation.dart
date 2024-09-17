@@ -16,22 +16,29 @@ class _BottomNavState extends State<BottomNav> {
   List screens = [
     const HomeScreen(),
     const UploadItemScreen(),
-    const CarControlScreen(),    
+    const CarControlScreen(),
     const SettingScreen()
   ];
 
-  void itemTaped (int index){
+  void _onNavigate(int index) {
     setState(() {
       selectedIndex = index;
     });
   }
+
+  void itemTaped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: screens[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: selectedIndex,
-        onTap: itemTaped,
+          currentIndex: selectedIndex,
+          onTap: itemTaped,
           selectedItemColor: Colors.blue,
           unselectedItemColor: Colors.grey.shade400,
           items: const [

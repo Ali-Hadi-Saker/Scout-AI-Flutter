@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:scout_ai/provider/user_provider.dart';
@@ -17,24 +14,8 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
   late SharedPreferences prefs;
-
   String? name;
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   loadUserData();
-  // }
-
-  // void loadUserData() async {
-  //   prefs = await SharedPreferences.getInstance();
-  //   String userDataJson = prefs.getString('userData')!;
-
-  //   var userData = jsonDecode(userDataJson);
-  //   setState(() {
-  //     name = userData['fname'];
-  //   });
-  //   print('$name');
-  // }
+  
 
   void logout() async {
     prefs = await SharedPreferences.getInstance();

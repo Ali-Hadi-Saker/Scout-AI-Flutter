@@ -17,34 +17,42 @@ class SecurityScreen extends StatefulWidget {
 }
 
 class _SecurityScreenState extends State<SecurityScreen> {
-  String? currentPassword;
-  String? newPassword;
-  String? confirmNewPassword;
+  TextEditingController currentPasswordController = TextEditingController();
   TextEditingController newPasswordController = TextEditingController();
   TextEditingController confirmNewPasswordController = TextEditingController();
 
-  @override
-  void initState() {
-    super.initState();
-    loadUserData();
+  Future<void> _changePassword() async {
+    final currentPassword = currentPasswordController.text;
+    final newPassword = newPasswordController.text;
+    final confirmNewPassword = confirmNewPasswordController.text;
+    if (currentPassword.isEmpty ||
+        newPassword.isEmpty ||
+        confirmNewPassword.isEmpty) {
+      print("All Fields are Required!!");
+      return;
+    }
   }
+  // void initState() {
+  //   super.initState();
+  //   loadUserData();
+  // }
 
-  void loadUserData() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String userDataJson = prefs.getString('userData')!;
+  // void loadUserData() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   String userDataJson = prefs.getString('userData')!;
 
-    var userData = jsonDecode(userDataJson);
-    setState(() {
-      currentPassword = userData['password'];
-    });
-  }
+  //   var userData = jsonDecode(userDataJson);
+  //   setState(() {
+  //     currentPassword = userData['password'];
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgColor,
       appBar: AppBar(
-      backgroundColor: AppColors.bgColor,
+        backgroundColor: AppColors.bgColor,
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back)),
@@ -60,7 +68,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
               height: 100,
             ),
             editInputField(
-              hintText: currentPassword!,
+              hintText: "Current Password",
               prefixIcon: const Icon(Icons.shield_rounded),
             ),
             editInputField(
@@ -101,7 +109,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
                             SmallButton(
                                 gradient: AppColors.primaryButtonGradient,
                                 onPressed: () {
-                                  print('Changed saved');
+                                  _changePassword();
                                 },
                                 text: 'Save')))
               ],

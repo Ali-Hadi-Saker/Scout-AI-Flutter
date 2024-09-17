@@ -4,6 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:scout_ai/provider/user_provider.dart';
 import 'package:scout_ai/utils/constant.dart';
+import 'package:scout_ai/widgets/displayField.dart';
 import 'package:scout_ai/widgets/edit_input_field.dart';
 import 'package:scout_ai/widgets/screen_icon.dart';
 import 'package:scout_ai/widgets/small_button.dart';
@@ -103,10 +104,11 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               controller: fnameController,
             ),
             const SizedBox(height: 20),
-            editInputField(
-              prefixIcon: const Icon(Icons.email),
-              hintText: email,
-            ),
+            // editInputField(
+            //   prefixIcon: const Icon(Icons.email),
+            //   hintText: email,
+            // ),
+            displayField(text: email, preffixIcon: Icon(Icons.email)),
             const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

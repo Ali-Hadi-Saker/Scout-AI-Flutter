@@ -1,34 +1,44 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
-class DisplayField extends StatelessWidget {
-  final String text;
+class displayField extends StatelessWidget {
+  final String? text;
   final Icon preffixIcon;
-  const DisplayField(
-      {super.key, required this.text, required this.preffixIcon});
+  final String placeholder;
+  const displayField({super.key, this.text, required this.preffixIcon, this.placeholder = 'Not available'});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        preffixIcon,
-        SizedBox(width: 10,),
-        Column(
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+        child: Row(
           children: [
-            Text(
-              text,
-              style: const TextStyle(
-                      fontSize: 16,
-                      color: Colors.black87,  
-                    ),
+            preffixIcon,
+            SizedBox(
+              width: 10,
             ),
-            const Divider(
-                  color: Colors.grey, 
-                  thickness: 1,
-                ),
+            Expanded(
+              child: Column(
+                children: [
+                  Text(
+                    text?.isNotEmpty == true? text!: placeholder,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Colors.black87,
+                    ),
+                  ),
+                  const Divider(
+                    color: Color.fromARGB(255, 65, 62, 62),
+                    thickness: 1,
+                  ),
+                ],
+              ),
+            )
           ],
-        )
-      ],
+        ),
+      ),
     );
   }
 }

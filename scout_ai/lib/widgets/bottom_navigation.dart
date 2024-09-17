@@ -13,12 +13,21 @@ class BottomNav extends StatefulWidget {
 
 class _BottomNavState extends State<BottomNav> {
   int selectedIndex = 0;
-  List screens = [
-    const HomeScreen(),
-    const UploadItemScreen(),
-    const CarControlScreen(),
-    const SettingScreen()
+  List<Widget> screens = [];
+
+  void initState() {
+    super.initState();
+    screens = [
+    HomeScreen(
+      onNavigate: _onNavigate,
+    ),
+    UploadItemScreen(),
+    CarControlScreen(),
+    SettingScreen()
   ];
+  }
+
+  
 
   void _onNavigate(int index) {
     setState(() {

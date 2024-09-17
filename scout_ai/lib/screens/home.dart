@@ -67,7 +67,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 80,
                     text: "Search for an Item",
                     onPressed: () {
-                      // Navigator.pushNamed(context, "upload-item");
                       widget.onNavigate!(1);
                     },
                     suffexIcon: const Icon(Icons.search, color: Colors.white),
@@ -78,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 80,
                     text: "Drive your Car",
                     onPressed: () {
-                      Navigator.pushNamed(context, "car-control");
+                      widget.onNavigate!(2);
                     },
                     suffexIcon:
                         const Icon(Icons.directions_car, color: Colors.white),

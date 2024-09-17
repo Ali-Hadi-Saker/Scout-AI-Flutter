@@ -10,34 +10,39 @@ class displayField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+          decoration: const BoxDecoration(
+          border: Border(
+            bottom: BorderSide(
+              color: Colors.grey, 
+              width: 1.0, 
+            ),
+          ),
+        ),
         child: Row(
           children: [
             preffixIcon,
             SizedBox(
               width: 10,
             ),
-            Expanded(
-              child: Column(
-                children: [
-                  Text(
-                    text?.isNotEmpty == true? text!: placeholder,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      color: Colors.black87,
-                    ),
+            Column(
+              children: [
+                Text(
+                  text?.isNotEmpty == true? text!: placeholder,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: Colors.black87,
                   ),
-                  const Divider(
-                    color: Color.fromARGB(255, 65, 62, 62),
-                    thickness: 1,
-                  ),
-                ],
-              ),
+                ),
+                
+              ],
             )
           ],
         ),
+       
       ),
     );
   }

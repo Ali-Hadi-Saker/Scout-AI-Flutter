@@ -70,7 +70,7 @@ class _CarControlScreenState extends State<CarControlScreen> {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  border: Border.all(color: Colors.blue, width: 2),
+                  border: Border.all(color: Colors.grey, width: 2),
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
@@ -101,9 +101,9 @@ class _CarControlScreenState extends State<CarControlScreen> {
             ),
             // Display whether the object has been found or not
             if (isMatched)
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Text(
                     'Object Found!!',
                     style: TextStyle(color: Colors.green, fontSize: 16, fontWeight: FontWeight.bold),
@@ -113,9 +113,9 @@ class _CarControlScreenState extends State<CarControlScreen> {
                 ],
               )
             else
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Text(
                     "Object Not Found",
                     style: TextStyle(color: Colors.red, fontSize: 16, fontWeight: FontWeight.bold),

@@ -51,7 +51,7 @@ class CustomizedButton extends StatelessWidget {
               // Text expanded to the left
               Expanded(
                 child: Align(
-                  alignment: Alignment.centerLeft,
+                  alignment: text == 'Login' || text == 'Sign Up'? Alignment.center: Alignment.centerLeft,
                   child: Text(
                     text,
                     style: const TextStyle(color: Colors.white, fontSize: 20),

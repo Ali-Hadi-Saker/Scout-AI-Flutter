@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 class AppColors {
   static const LinearGradient primaryButtonGradient = LinearGradient(
     colors: [
-      Color(0xFF6389BE), 
-      Color(0xFF2E4058), 
+      Color(0xFF6389BE),
+      Color(0xFF2E4058),
     ],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
+  static const Color primaryButton = Color(0xFF2E4058);
+  static const Color logoutButton = Color(0xFF8B0000);
+
 
   static const LinearGradient logoutButtonGradient = LinearGradient(
     colors: [
@@ -19,5 +22,5 @@ class AppColors {
     end: Alignment.bottomRight,
   );
 
-  static const Color bgColor = Color.fromRGBO(246, 246, 246, 1); 
+  static const Color bgColor = Color.fromRGBO(246, 246, 246, 1);
 }

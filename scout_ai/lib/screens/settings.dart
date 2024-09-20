@@ -69,7 +69,8 @@ class _SettingScreenState extends State<SettingScreen> {
               height: 120,
             ),
             CustomizedButton(
-                gradient: AppColors.primaryButtonGradient,
+                // gradient: AppColors.primaryButtonGradient,
+                btnColor: AppColors.primaryButton,
                 text: "User Infos",
                 onPressed: () => Navigator.pushNamed(context, "user-infos"),
                 suffexIcon: const Icon(Icons.arrow_forward_ios_sharp),
@@ -79,7 +80,8 @@ class _SettingScreenState extends State<SettingScreen> {
               height: 20,
             ),
             CustomizedButton(
-                gradient: AppColors.primaryButtonGradient,
+                // gradient: AppColors.primaryButtonGradient,
+                btnColor: AppColors.primaryButton,
                 text: "Security",
                 onPressed: () => Navigator.pushNamed(context, "security"),
                 suffexIcon: const Icon(Icons.arrow_forward_ios_sharp),
@@ -89,7 +91,8 @@ class _SettingScreenState extends State<SettingScreen> {
               height: 20,
             ),
             CustomizedButton(
-                gradient: AppColors.primaryButtonGradient,
+                // gradient: AppColors.primaryButtonGradient,
+                btnColor: AppColors.primaryButton,
                 text: "History",
                 onPressed: () => Navigator.pushNamed(context, "history"),
                 suffexIcon: const Icon(Icons.arrow_forward_ios_sharp),
@@ -97,7 +100,8 @@ class _SettingScreenState extends State<SettingScreen> {
                 height: 80),
             Spacer(),
             CustomizedButton(
-              gradient: AppColors.logoutButtonGradient,
+              // gradient: AppColors.logoutButtonGradient,
+              btnColor: AppColors.logoutButton,
               text: "Logout",
               onPressed: logout,
               height: 80,

@@ -139,7 +139,7 @@ class _CarControlScreenState extends State<CarControlScreen> {
                           style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 30, vertical: 20),
-                            backgroundColor: Colors.blue,
+                            backgroundColor: AppColors.primaryButton,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
@@ -160,7 +160,7 @@ class _CarControlScreenState extends State<CarControlScreen> {
                           style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 30, vertical: 20),
-                            backgroundColor: Colors.blue,
+                                backgroundColor: AppColors.primaryButton,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
@@ -188,7 +188,7 @@ class _CarControlScreenState extends State<CarControlScreen> {
                           style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 30, vertical: 20),
-                            backgroundColor: Colors.blue,
+                            backgroundColor: AppColors.primaryButton,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
@@ -207,7 +207,7 @@ class _CarControlScreenState extends State<CarControlScreen> {
                           style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 30, vertical: 20),
-                            backgroundColor: Colors.blue,
+                            backgroundColor: AppColors.primaryButton,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),

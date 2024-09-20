@@ -37,36 +37,3 @@ class _VideoStreamState extends State<VideoStream> {
         });
   }
 }
-// import 'package:flutter/material.dart';
-
-// class VideoStream extends StatelessWidget {
-//   final String url;
-
-//   const VideoStream({super.key, required this.url});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Center(
-//         child: Image.network(
-//           url,
-//           errorBuilder: (context, error, stackTrace) {
-//             return const Center(
-//               child: Text('Failed to load video stream'),
-//             );
-//           },
-//           loadingBuilder: (context, child, loadingProgress) {
-//             if (loadingProgress == null) {
-//               return child;
-//             } else {
-//               return const Center(
-//                 child: CircularProgressIndicator(),
-//               );
-//             }
-//           },
-//           fit: BoxFit.contain,
-//         ),
-//       ),
-//     );
-//   }
-// }

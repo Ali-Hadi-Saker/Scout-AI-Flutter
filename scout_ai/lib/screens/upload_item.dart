@@ -58,21 +58,6 @@ class _UploadItemScreenState extends State<UploadItemScreen> {
             const SizedBox(
               height: 15,
             ),
-            // CustomizedButton(
-            //     color: AppColors.primaryButtonColor,
-            //     text: "Start Search",
-            //     onPressed: () {
-            //       final objectName =
-            //           _objectNameController.text.trim().toLowerCase();
-            //       Navigator.push(
-            //         context,
-            //         MaterialPageRoute(
-            //           builder: (context) => CarControlScreen(
-            //             objectName: objectName,
-            //           ),
-            //         ),
-            //       );
-            //     })
             SmallButton(
                 // gradient: AppColors.primaryButtonGradient,
                 btnColor: AppColors.primaryButton,

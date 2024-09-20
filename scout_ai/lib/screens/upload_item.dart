@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scout_ai/screens/car_control.dart';
 import 'package:scout_ai/utils/constant.dart';
-import 'package:scout_ai/widgets/button.dart';
 import 'package:scout_ai/widgets/small_button.dart';
 
 class UploadItemScreen extends StatefulWidget {

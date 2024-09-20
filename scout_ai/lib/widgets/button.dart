@@ -7,7 +7,8 @@ class CustomizedButton extends StatelessWidget {
   final double? height;
   final Icon? preffixIcon;
   final Icon? suffexIcon;
-  final LinearGradient gradient; 
+  final LinearGradient? gradient;
+  final Color? btnColor;
 
   const CustomizedButton({
     super.key,
@@ -17,7 +18,8 @@ class CustomizedButton extends StatelessWidget {
     this.suffexIcon,
     this.height,
     this.preffixIcon,
-    required this.gradient, 
+    this.gradient,
+    this.btnColor
   });
 
   @override
@@ -28,7 +30,7 @@ class CustomizedButton extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
-          gradient: gradient, 
+          color: btnColor,
         ),
         child: MaterialButton(
           onPressed: onPressed,
@@ -51,7 +53,9 @@ class CustomizedButton extends StatelessWidget {
               // Text expanded to the left
               Expanded(
                 child: Align(
-                  alignment: text == 'Login' || text == 'Sign Up'? Alignment.center: Alignment.centerLeft,
+                  alignment: text == 'Login' || text == 'Sign Up'
+                      ? Alignment.center
+                      : Alignment.centerLeft,
                   child: Text(
                     text,
                     style: const TextStyle(color: Colors.white, fontSize: 20),

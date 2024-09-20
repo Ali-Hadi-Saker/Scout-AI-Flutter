@@ -74,7 +74,8 @@ class _UploadItemScreenState extends State<UploadItemScreen> {
             //       );
             //     })
             SmallButton(
-                gradient: AppColors.primaryButtonGradient,
+                // gradient: AppColors.primaryButtonGradient,
+                btnColor: AppColors.primaryButton,
                 isFullWidth: true,
                 onPressed: () {
                   final objectName =

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scout_ai/screens/upload_item.dart';
 import 'package:scout_ai/services/websocket.dart';
 import 'package:scout_ai/utils/constant.dart';
 import 'package:scout_ai/widgets/video_stream.dart';
@@ -56,7 +57,12 @@ class _CarControlScreenState extends State<CarControlScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         leading: IconButton(
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => {
+            context,
+            MaterialPageRoute(
+              builder: (context) => UploadItemScreen() )
+          },
+          // Navigator.pop(context),
           icon: const Icon(Icons.arrow_back),
         ),
         title: const Text("Car Control"),
